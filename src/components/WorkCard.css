@@ -1,0 +1,232 @@
+.work-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: grid;
+  grid-template-columns: 45% 1fr;
+}
+
+.work-card--hovered {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* Image area */
+.work-card__image {
+  position: relative;
+  min-height: 420px;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-card__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+  z-index: 1;
+}
+
+.work-card--hovered .work-card__image-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.work-card__image-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  z-index: 0;
+}
+
+.work-card__image-placeholder {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.25);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.work-card__image-icon {
+  font-size: 1.5rem;
+  opacity: 0.3;
+}
+
+.work-card__image-hover-cta {
+  position: absolute;
+  z-index: 2;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  opacity: 0;
+  background: var(--rust);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.work-card--hovered .work-card__image-hover-cta {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Content */
+.work-card__content {
+  padding: 36px 40px 40px;
+}
+
+.work-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.work-card__number {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  flex-shrink: 0;
+}
+
+.work-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.work-card__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.work-card__category {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--rust);
+  margin-bottom: 14px;
+  font-weight: 400;
+}
+
+.work-card__description {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--gray-text);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 680px;
+}
+
+.work-card__impact {
+  margin-bottom: 28px;
+}
+
+.work-card__impact-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  margin-bottom: 10px;
+}
+
+.work-card__impact ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.work-card__impact li {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--charcoal);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.work-card__impact li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 0.85rem;
+}
+
+.work-card__cta {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--rust);
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.work-card__cta:hover {
+  color: #a8512a;
+}
+
+.work-card__cta--disabled {
+  color: var(--gray-text);
+  cursor: default;
+}
+
+@media (max-width: 1024px) {
+  .work-card {
+    grid-template-columns: 1fr;
+  }
+
+  .work-card__image {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-card__image {
+    min-height: 240px;
+  }
+
+  .work-card__content {
+    padding: 24px 24px 28px;
+  }
+
+  .work-card__title {
+    font-size: 1.5rem;
+  }
+}

@@ -20,6 +20,13 @@
 # production
 /build
 
+# vite
+/dist
+/dist-ssr
+
+# claude internal config
+.claude/
+
 # misc
 .DS_Store
 *.pem

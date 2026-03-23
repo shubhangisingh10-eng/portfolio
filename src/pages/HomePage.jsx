@@ -1,0 +1,337 @@
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import WorkCard from '../components/WorkCard.jsx'
+import FAQAccordion from '../components/FAQAccordion.jsx'
+import TagChip from '../components/TagChip.jsx'
+import { useScrollReveal } from '../hooks/useScrollReveal.js'
+import './HomePage.css'
+
+/* ---------- DATA ---------- */
+const projects = [
+  {
+    number: 'PROJECT 01',
+    tags: ['UI/UX Design', 'Design System', 'Interactive Prototyping'],
+    title: 'Redesigning a Complex Sales Workflow for Scale',
+    category: 'Enterprise Growth · HR Tech',
+    description:
+      'Sole designer on a 14-person team modernizing a go-to-market platform for enterprise sales. Led end-to-end UX from discovery to engineering-ready specs.',
+    impact: [
+      'Endorsed by C-suite executives, aligning leadership on the North Star vision',
+      'Delivered engineering-ready designs enabling faster build cycles',
+      'Positioned to drive higher adoption at launch',
+    ],
+    bgColor: '#1C2B3A',
+    image: '/Case Study 1 Square.png',
+    route: '/case-study/sales-workflow-redesign',
+  },
+  {
+    number: 'PROJECT 02',
+    tags: ['UX Strategy', 'Conversion Optimization', 'A/B Testing'],
+    title: 'Designing a DTC Patient Activation Journey That Drives Action',
+    category: 'Healthcare · Direct-to-Consumer · Patient Experience',
+    description:
+      'Redesigned a healthcare DTC experience to drive patient action. Ran A/B tests across content structure, messaging, and entry points to identify what actually moves users forward.',
+    impact: [
+      '~90% higher CTR for caregivers with optimized messaging',
+      '2× engagement lift from readiness-focused themes',
+      '7–9% CTR on FAQ dropdown interactions',
+    ],
+    bgColor: '#1E3028',
+    image: '/Case Study 2 Square.png',
+    route: '/case-study/dtc-patient-activation',
+  },
+  {
+    number: 'PROJECT 03',
+    tags: ['GenAI', 'UX Strategy', 'Enterprise', 'B2B Sales'],
+    title: 'Reimagining Sales Enablement with GenAI for a €35B Energy Company',
+    category: 'Energy · GenAI · B2B Sales Enablement',
+    description:
+      'Sole designer on a GenAI-powered sales tool for a €35B energy company. Spent 3 days embedded in live sales training, then designed a prototype the CEO unveiled at the Annual Sales Conference to 120+ reps.',
+    impact: [
+      '€100M+ additional margin potential',
+      '30% reduction in sales cycle time',
+      '50% less time spent on proposal creation',
+    ],
+    bgColor: '#1A2B1E',
+    image: '/Case Study 3 Square.png',
+    route: '/case-study/genai-sales-enablement',
+  },
+]
+
+const expertiseTags = [
+  'Product-Driven Design',
+  'AI UX Strategy',
+  'Inclusive & Accessible Design',
+  'End-to-End UX Ownership',
+  'Enterprise UX',
+  'Design Systems',
+  'Interactive Prototyping',
+  'User Research',
+]
+
+const experience = [
+  {
+    current: true,
+    role: 'Experience Designer',
+    tag: 'Current',
+    company: 'BCG X · New York',
+    period: "Jul '23 — Present",
+  },
+  {
+    current: false,
+    role: 'Experience Designer Intern',
+    company: 'BCG X · New York',
+    period: "Jun '22 — Aug '22",
+  },
+  {
+    current: false,
+    role: 'Design Tutor',
+    company: 'Pratt Institute · New York',
+    period: "Jan '22 — May '23",
+  },
+  {
+    current: false,
+    role: 'Senior UI Designer',
+    company: 'Fractalink · India',
+    period: "Jul '18 — Sep '20",
+  },
+]
+
+const tickerText =
+  'PRODUCT DESIGN ✦ ENTERPRISE UX ✦ AI PRODUCTS ✦ DESIGN SYSTEMS ✦ USER RESEARCH ✦ ACCESSIBILITY ✦ INTERACTION DESIGN ✦ PROTOTYPING ✦ BCG X ✦ 5+ YEARS ✦ '
+
+export default function HomePage() {
+  useScrollReveal()
+
+  // Magnetic pull on pill buttons — cursor drags them slightly toward itself
+  useEffect(() => {
+    const buttons = document.querySelectorAll('.pill-btn, .pill-btn-ghost')
+
+    const onMove = (e) => {
+      const btn = e.currentTarget
+      const rect = btn.getBoundingClientRect()
+      const x = (e.clientX - rect.left - rect.width  / 2) * 0.28
+      const y = (e.clientY - rect.top  - rect.height / 2) * 0.28
+      btn.style.transition = 'transform 0.08s ease'
+      btn.style.transform  = `translate(${x}px, ${y}px)`
+    }
+
+    const onLeave = (e) => {
+      const btn = e.currentTarget
+      btn.style.transition = 'transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease'
+      btn.style.transform  = 'translate(0, 0)'
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('mousemove',  onMove)
+      btn.addEventListener('mouseleave', onLeave)
+    })
+    return () => {
+      buttons.forEach(btn => {
+        btn.removeEventListener('mousemove',  onMove)
+        btn.removeEventListener('mouseleave', onLeave)
+      })
+    }
+  }, [])
+
+  return (
+    <main className="home">
+      {/* ======================== HERO ======================== */}
+      <section className="hero">
+        <div className="hero__inner">
+          {/* Left: text content */}
+          <div className="hero__content">
+            <h1 className="hero__headline">
+              Turning ambiguity into{' '}
+              <em className="hero__em">products that work</em>
+              {' '}for people and the business.
+            </h1>
+            <p className="hero__sub">5+ years · Currently at BCG X · Pratt Institute</p>
+            <div className="hero__cta-row">
+              <a href="#work" className="pill-btn">
+                View my work ↓
+              </a>
+            </div>
+            {/* Tag row under CTA */}
+            <div className="hero__tags">
+              <span className="badge badge--white hero__tag" style={{ animationDuration: '6s', animationDelay: '0s' }}>AI UX Strategy</span>
+              <span className="badge badge--rust hero__tag" style={{ animationDuration: '7s', animationDelay: '0.5s' }}>✦ Design Systems</span>
+              <span className="badge badge--white hero__tag" style={{ animationDuration: '5s', animationDelay: '1s' }}>📍 NYC Based</span>
+            </div>
+          </div>
+
+          {/* Right: NYC photo */}
+          <div className="hero__image-wrap">
+            <img
+              src="/hero-nyc.jpg"
+              alt="Shubhangi working at BCG X office with NYC skyline view"
+              className="hero__image"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ======================== TICKER ======================== */}
+      <section className="ticker" aria-hidden="true">
+        <div className="ticker__track">
+          <span className="ticker__text">{tickerText}</span>
+          <span className="ticker__text" aria-hidden="true">{tickerText}</span>
+        </div>
+      </section>
+
+      {/* ======================== WORK ======================== */}
+      <section id="work" className="work">
+        <div className="work__header">
+          <img src="/Project.svg" className="section-icon reveal" alt="" aria-hidden="true" />
+          <h2 className="work__title reveal" data-delay="1">Selected Work</h2>
+          <p className="work__sub reveal" data-delay="2">Hover to explore — click to read the full story.</p>
+        </div>
+        <div className="work__cards">
+          {projects.map((p, i) => (
+            <div key={p.number} className="reveal" data-delay={String(i)}>
+              <WorkCard {...p} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ======================== ABOUT ======================== */}
+      <section id="about" className="about">
+        <div className="about__inner">
+          {/* Left col */}
+          <div className="about__left">
+            <img src="/About.svg" className="section-icon reveal" alt="" aria-hidden="true" />
+            <p className="about__label reveal" data-delay="1">About</p>
+            <h2 className="about__heading reveal" data-delay="2">
+              Bridging complex systems and the humans who use them.
+            </h2>
+            <p className="about__bio reveal" data-delay="3">
+              I'm a product designer with 5+ years of experience bridging complex systems and
+              the humans who use them. Currently at BCG X in New York, designing AI-powered
+              tools, enterprise platforms, and inclusive digital experiences.
+            </p>
+            <p className="about__bio reveal" data-delay="3">
+              I believe great design is both rigorous and empathetic — structured thinking
+              applied to ambiguous problems, with the focus firmly on people.
+            </p>
+
+            {/* Expertise tags */}
+            <div className="about__tags reveal" data-delay="4">
+              {expertiseTags.map((t) => (
+                <TagChip key={t} label={t} />
+              ))}
+            </div>
+
+            {/* Experience timeline */}
+            <div className="about__timeline reveal" data-delay="4">
+              {experience.map((exp, i) => (
+                <div key={i} className={`timeline-item ${exp.current ? 'timeline-item--current' : ''}`}>
+                  <span className="timeline-dot">{exp.current ? '●' : '○'}</span>
+                  <div className="timeline-content">
+                    <div className="timeline-role">
+                      {exp.role}
+                      {exp.current && (
+                        <span className="timeline-tag">Current</span>
+                      )}
+                    </div>
+                    <div className="timeline-company">{exp.company}</div>
+                    <div className="timeline-period">{exp.period}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right col */}
+          <div className="about__right">
+            <div className="about__portrait-wrap reveal" data-delay="2">
+              <img
+                src="/portrait.jpg"
+                alt="Shubhangi Singh"
+                className="about__portrait"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================== CONTACT ======================== */}
+      <section id="contact" className="contact">
+        <div className="contact__inner">
+          <img src="/Contact.svg" className="section-icon section-icon--center reveal" alt="" aria-hidden="true" />
+          <h2 className="contact__headline reveal" data-delay="1">
+            Ready to build something <em className="hero__em">amazing?</em>
+          </h2>
+          <p className="contact__sub reveal" data-delay="2">I'd love to connect with you!</p>
+
+          <div className="contact__cards reveal" data-delay="3">
+            <a href="mailto:shubhangisingh10@gmail.com" className="contact__card">
+              <span className="contact__card-label">EMAIL</span>
+              <span className="contact__card-value">shubhangisingh10@gmail.com</span>
+              <span className="contact__card-arrow">↗</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/shubhangisingh10/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact__card"
+            >
+              <span className="contact__card-label">LINKEDIN</span>
+              <span className="contact__card-value">linkedin.com/in/shubhangisingh10</span>
+              <span className="contact__card-arrow">↗</span>
+            </a>
+            <a
+              href="https://shubhangisingh.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact__card"
+            >
+              <span className="contact__card-label">WEBSITE</span>
+              <span className="contact__card-value">shubhangisingh.com</span>
+              <span className="contact__card-arrow">↗</span>
+            </a>
+            <div className="contact__card contact__card--plain">
+              <span className="contact__card-label">DOWNLOAD RESUME</span>
+              <span className="contact__card-value">PDF · Available on request</span>
+              <span className="contact__card-arrow">↓</span>
+            </div>
+          </div>
+
+          <a href="mailto:shubhangisingh10@gmail.com" className="pill-btn reveal" data-delay="4">
+            Get Started ↗
+          </a>
+        </div>
+      </section>
+
+      {/* ======================== FOOTER ======================== */}
+      <footer className="footer">
+        <div className="footer__top">
+          <div className="footer__left">
+            <span className="footer__name">Shubhangi Singh</span>
+            <span className="footer__tagline">Product designer. NYC.</span>
+          </div>
+          <nav className="footer__nav">
+            <a href="#work" className="footer__link">Works</a>
+            <a href="#about" className="footer__link">About</a>
+            <a href="#contact" className="footer__link">Contact</a>
+            <a
+              href="https://www.linkedin.com/in/shubhangisingh10/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer__link footer__link--accent"
+            >
+              LinkedIn ↗
+            </a>
+            <a href="mailto:shubhangisingh10@gmail.com" className="footer__link footer__link--accent">
+              Email ↗
+            </a>
+          </nav>
+        </div>
+        <div className="footer__bottom">
+          <span>© 2026 Shubhangi Singh. Designed &amp; built with care.</span>
+          <span>Vibe coded by Shubhangi Singh ✦ New York City</span>
+        </div>
+      </footer>
+    </main>
+  )
+}

@@ -1,0 +1,99 @@
+.dn {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.dn__inner {
+  padding: 32px 36px;
+  border: 1.5px solid var(--gray-border);
+  border-radius: 12px;
+  position: relative;
+}
+
+/* Type variants — left accent bar */
+.dn--decision .dn__inner { border-left: 4px solid var(--rust); }
+.dn--insight  .dn__inner { border-left: 4px solid #8B6E5A; }
+.dn--principle .dn__inner { border-left: 4px solid var(--charcoal); }
+.dn--process  .dn__inner { border-left: 4px solid var(--gray-text); background: var(--cream); }
+
+/* Top row */
+.dn__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.dn__icon {
+  font-size: 0.7rem;
+  color: var(--rust);
+}
+
+.dn--insight  .dn__icon  { color: #8B6E5A; }
+.dn--principle .dn__icon { color: var(--charcoal); }
+.dn--process  .dn__icon  { color: var(--gray-text); }
+
+.dn__label {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+
+.dn--insight  .dn__label  { color: #8B6E5A; }
+.dn--principle .dn__label { color: var(--charcoal); }
+.dn--process  .dn__label  { color: var(--gray-text); }
+
+.dn__nda {
+  margin-left: auto;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--gray-text);
+  background: var(--tag-bg);
+  border-radius: 999px;
+  padding: 3px 10px;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+
+/* Heading */
+.dn__heading {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.35;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+/* Body */
+.dn__body {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--gray-text);
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+/* Tags */
+.dn__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dn__tag {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
