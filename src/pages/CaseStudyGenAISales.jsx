@@ -24,7 +24,7 @@ export default function CaseStudyGenAISales() {
         </div>
 
         <h1 className="cs__title">
-          Reimagining Sales Enablement for a €35B Energy Company Through a GenAI-Powered Tool
+          Reimagining Sales Enablement for a Global Energy Company Through a GenAI-Powered Tool
         </h1>
 
         <blockquote className="cs__pullquote">
@@ -47,7 +47,7 @@ export default function CaseStudyGenAISales() {
       <TwoMinuteVersion
         role="Sole Experience Designer — embedded in a senior cross-functional team. Owned all design from initial stakeholder workshops through prototype delivery. Spent 3 days personally in the field during live sales training to ground the work in real behavior."
         timeline="Energy · GenAI · B2B Sales Enablement"
-        problem="B2B energy sales reps at a €35B company spent too much time on low-value activities — manually prioritising leads by gut feel, building proposals from scratch, and working without structured coaching. The result was inconsistent performance, slow sales cycles, and lost revenue at scale."
+        problem="B2B energy sales reps at a major global energy company spent too much time on low-value activities — manually prioritising leads by gut feel, building proposals from scratch, and working without structured coaching. The result was inconsistent performance, slow sales cycles, and lost revenue at scale."
         approach={[
           'Led stakeholder workshops with the CEO, senior advisors, and sales leaders to map the end-to-end sales journey and surface pain points',
           'Spent 3 days embedded in live client sales training — personally shadowing pitches, observing role-play exercises, and conducting contextual inquiries with reps',
@@ -82,7 +82,7 @@ export default function CaseStudyGenAISales() {
           marginTop: '10px',
           paddingLeft: '4px',
         }}>
-          AI-powered sales enablement prototype — designed for a €35B energy company's B2B sales team
+          AI-powered sales enablement prototype — designed for a global energy company's B2B sales team
         </p>
       </div>
 

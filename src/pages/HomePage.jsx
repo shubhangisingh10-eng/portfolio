@@ -43,10 +43,10 @@ const projects = [
   {
     number: 'PROJECT 03',
     tags: ['GenAI', 'UX Strategy', 'Enterprise', 'B2B Sales'],
-    title: 'Reimagining Sales Enablement with GenAI for a €35B Energy Company',
+    title: 'Reimagining Sales Enablement with GenAI for a Global Energy Company',
     category: 'Energy · GenAI · B2B Sales Enablement',
     description:
-      'Sole designer on a GenAI-powered sales tool for a €35B energy company. Spent 3 days embedded in live sales training, then designed a prototype the CEO unveiled at the Annual Sales Conference to 120+ reps.',
+      'Sole designer on a GenAI-powered sales tool for a major energy company. Spent 3 days embedded in live sales training, then designed a prototype the CEO unveiled at the Annual Sales Conference to 120+ reps.',
     impact: [
       '€100M+ additional margin potential',
       '30% reduction in sales cycle time',
@@ -328,8 +328,8 @@ export default function HomePage() {
           </nav>
         </div>
         <div className="footer__bottom">
-          <span>© 2026 Shubhangi Singh. Designed &amp; built with care.</span>
-          <span>Vibe coded by Shubhangi Singh ✦ New York City</span>
+          <span>Designed and vibe coded by Shubhangi Singh</span>
+          <span>New York City</span>
         </div>
       </footer>
     </main>
