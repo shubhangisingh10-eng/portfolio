@@ -1,5 +1,5 @@
 /* =============================================
-   WORK CARD — Found Paper Romanticism
+   WORK CARD — Modern editorial
    ============================================= */
 
 .work-card {
@@ -20,29 +20,29 @@
   box-shadow: none;
 }
 
-/* ── Image area — mounted specimen look ── */
+/* ── Image area ── */
 .work-card__image {
   position: relative;
   min-height: 400px;
   cursor: pointer;
   overflow: hidden;
   background: var(--paper-dark);
-  /* Inner mount: bright inset border gives framed-photo feel */
   box-shadow:
-    0 2px 4px rgba(28, 21, 16, 0.06),
-    0 8px 28px rgba(28, 21, 16, 0.14);
+    0 2px 8px rgba(13, 13, 26, 0.06),
+    0 12px 36px rgba(61, 104, 245, 0.10);
+  border-radius: 4px;
 }
 
 .work-card__image-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(28, 21, 16, 0);
+  background: rgba(13, 13, 26, 0);
   transition: background 0.4s ease;
   z-index: 1;
 }
 
 .work-card--hovered .work-card__image-overlay {
-  background: rgba(28, 21, 16, 0.32);
+  background: rgba(13, 13, 26, 0.28);
 }
 
 .work-card__image-photo {
@@ -54,7 +54,6 @@
   object-position: center top;
   display: block;
   z-index: 0;
-  filter: sepia(5%);
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -70,9 +69,9 @@
   align-items: center;
   gap: 10px;
   color: var(--ink-pale);
-  font-family: var(--font-label);
+  font-family: var(--font-body);
   font-size: 0.62rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -85,15 +84,15 @@
   left: 50%;
   transform: translateX(-50%) translateY(8px);
   opacity: 0;
-  background: var(--cream);
+  background: #FFFFFF;
   color: var(--ink);
-  font-family: var(--font-label);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 10px 20px;
-  border-radius: 1px;
+  padding: 10px 22px;
+  border-radius: 100px;
   white-space: nowrap;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -119,17 +118,18 @@
   flex-wrap: wrap;
 }
 
-/* Number as ink-stamp label */
+/* Number label */
 .work-card__number {
-  font-family: var(--font-label);
-  font-size: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--cream);
+  color: #FFFFFF;
   background: var(--ink);
-  padding: 4px 10px;
+  padding: 4px 12px;
   flex-shrink: 0;
+  border-radius: 2px;
 }
 
 .work-card__tags {
@@ -138,7 +138,7 @@
   gap: 6px;
 }
 
-/* Garamond title — the editorial anchor */
+/* Garamond title */
 .work-card__title {
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 2.6vw, 2.1rem);
@@ -149,18 +149,20 @@
   letter-spacing: -0.01em;
 }
 
+/* Category — blue */
 .work-card__category {
-  font-family: var(--font-label);
-  font-size: 0.66rem;
-  letter-spacing: 0.16em;
+  font-family: var(--font-body);
+  font-size: 0.70rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--stamp-red);
+  color: var(--blue);
   margin-bottom: 16px;
+  font-weight: 500;
 }
 
 .work-card__description {
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.90rem;
   color: var(--ink-mid);
   line-height: 1.75;
   margin-bottom: 28px;
@@ -171,10 +173,10 @@
 
 .work-card__impact-label {
   display: block;
-  font-family: var(--font-label);
-  font-size: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-light);
   margin-bottom: 12px;
@@ -189,29 +191,29 @@
 
 .work-card__impact li {
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   color: var(--ink-mid);
   padding-left: 20px;
   position: relative;
   line-height: 1.5;
 }
 
+/* Blue dash */
 .work-card__impact li::before {
   content: '—';
   position: absolute;
   left: 0;
-  color: var(--stamp-red);
+  color: var(--blue);
 }
 
-/* CTA — underline link style */
+/* CTA — underline link */
 .work-card__cta {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-label);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   color: var(--ink);
   text-decoration: none;
   gap: 8px;
@@ -223,8 +225,8 @@
 }
 
 .work-card__cta:hover {
-  color: var(--stamp-red);
-  border-color: var(--stamp-red);
+  color: var(--blue);
+  border-color: var(--blue);
 }
 
 .work-card__cta--disabled {

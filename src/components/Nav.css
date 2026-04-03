@@ -1,5 +1,5 @@
 /* =============================================
-   NAV — newspaper masthead aesthetic
+   NAV — frosted glass, modern minimal
    ============================================= */
 
 .nav {
@@ -8,13 +8,15 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: var(--paper);
-  border-bottom: 1px solid var(--ink-pale);
-  transition: border-color 0.3s ease;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(61, 104, 245, 0.08);
+  transition: box-shadow 0.3s ease;
 }
 
 .nav--scrolled {
-  border-bottom-color: var(--ink-light);
+  box-shadow: 0 4px 24px rgba(13, 13, 26, 0.06);
 }
 
 .nav__inner {
@@ -27,7 +29,7 @@
   justify-content: space-between;
 }
 
-/* Name — elegant italic Garamond */
+/* Italic serif name */
 .nav__name {
   font-family: var(--font-display);
   font-style: italic;
@@ -52,13 +54,12 @@
   flex-shrink: 0;
 }
 
-/* Links — Courier Prime, all-caps, tracked */
+/* Links — clean DM Sans */
 .nav__link {
-  font-family: var(--font-label);
-  font-size: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
   font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: var(--ink-light);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -70,25 +71,26 @@
   color: var(--ink);
 }
 
-/* Active underline — thin red rule */
+/* Active underline — blue */
 .nav__link--active::after {
   content: '';
   position: absolute;
   bottom: -4px;
   left: 0;
   right: 0;
-  height: 1px;
-  background: var(--stamp-red);
+  height: 2px;
+  background: var(--blue);
+  border-radius: 1px;
 }
 
-.nav__link--external { color: var(--stamp-red); }
-.nav__link--external:hover { color: #d45044; }
+.nav__link--external { color: var(--blue); }
+.nav__link--external:hover { color: #2B52E0; }
 
 @media (max-width: 768px) {
   .nav__inner { padding: 0 24px; }
   .nav__center { gap: 20px; }
   .nav__right  { gap: 16px; }
-  .nav__link   { font-size: 0.6rem; }
+  .nav__link   { font-size: 0.72rem; }
 }
 
 @media (max-width: 480px) {

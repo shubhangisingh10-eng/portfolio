@@ -1,39 +1,42 @@
 /* =============================================
-   DESIGN TOKENS — Found Paper Romanticism
+   DESIGN TOKENS — Modern White / Blue
    ============================================= */
 
 :root {
-  /* Paper palette */
-  --paper:        #F4EDE0;   /* aged paper — main bg */
-  --paper-warm:   #EDE3CF;   /* warmer paper — alt sections */
-  --paper-dark:   #E2D6BC;   /* darker paper — dividers, strips */
-  --cream:        #FAF7F0;   /* near-white paper */
+  /* Core backgrounds */
+  --paper:        #FFFFFF;
+  --paper-warm:   #F5F7FF;
+  --paper-dark:   #EBF0FF;
+  --cream:        #FFFFFF;
 
-  /* Ink */
-  --ink:          #1C1510;   /* deep warm near-black */
-  --ink-mid:      #4A3828;   /* medium ink — body text */
-  --ink-light:    #8B7355;   /* pale ink — captions, meta */
-  --ink-pale:     #C8B89A;   /* faint ink — rules, borders */
+  /* Text hierarchy */
+  --ink:          #0D0D1A;
+  --ink-mid:      #3A3A5C;
+  --ink-light:    #7272A0;
+  --ink-pale:     #C0C0D8;
 
-  /* Stamp accents — used surgically */
-  --stamp-red:    #B33A2B;   /* vermillion */
-  --stamp-blue:   #2B4A7A;   /* cobalt */
-  --mustard:      #C09428;   /* golden mustard */
+  /* Blue accent system */
+  --blue:         #3D68F5;
+  --blue-light:   #C8D9FF;
+  --blue-soft:    #EBF0FF;
 
-  /* Legacy aliases keep case-study pages working */
-  --rust:         #B33A2B;
-  --rust-light:   #EDD9CE;
-  --rust-muted:   #E8C4B0;
-  --charcoal:     #1C1510;
+  /* Legacy — keeps case study pages intact */
+  --stamp-red:    #C0392B;
+  --stamp-blue:   #3D68F5;
+  --mustard:      #3D68F5;
+  --rust:         #C0392B;
+  --rust-light:   #FFE8E5;
+  --rust-muted:   #FFCDC8;
+  --charcoal:     #0D0D1A;
   --white:        #FFFFFF;
-  --gray-text:    #8B7355;
-  --gray-border:  #C8B89A;
+  --gray-text:    #7272A0;
+  --gray-border:  #C0C0D8;
   --tag-bg:       transparent;
-  --tag-text:     #4A3828;
+  --tag-text:     #3A3A5C;
 
   /* Typography */
   --font-display: 'EB Garamond', Georgia, serif;
-  --font-label:   'Courier Prime', 'Courier New', monospace;
+  --font-label:   'DM Sans', sans-serif;
   --font-body:    'DM Sans', sans-serif;
 }
 
@@ -59,18 +62,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Paper grain — the single most impactful texture detail */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9998;
-  opacity: 0.045;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
-}
-
 img { max-width: 100%; display: block; }
 
 a { text-decoration: none; color: inherit; }
@@ -88,7 +79,7 @@ button {
 
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(24px);
   transition:
     opacity   0.7s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
@@ -105,11 +96,6 @@ button {
    ANIMATIONS
    ============================================= */
 
-@keyframes floatStraight {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-8px); }
-}
-
 @keyframes ticker {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -117,30 +103,29 @@ button {
 
 /* =============================================
    UTILITY — BUTTONS
-   (stamp-impression aesthetic)
    ============================================= */
 
 .pill-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--ink);
-  color: var(--cream);
-  border-radius: 2px;
-  padding: 13px 28px;
-  font-family: var(--font-label);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  transition: background 0.2s ease, transform 0.2s ease;
+  background: var(--blue);
+  color: #FFFFFF;
+  border-radius: 100px;
+  padding: 14px 28px;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
   border: none;
 }
 
 .pill-btn:hover {
-  background: var(--stamp-red);
+  background: #2B52E0;
   transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(61, 104, 245, 0.3);
 }
 
 .pill-btn-ghost {
@@ -148,20 +133,19 @@ button {
   align-items: center;
   gap: 8px;
   background: transparent;
-  color: var(--ink);
-  border-radius: 2px;
-  padding: 12px 27px;
-  font-family: var(--font-label);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  border: 1.5px solid var(--ink-pale);
+  color: var(--blue);
+  border-radius: 100px;
+  padding: 13px 27px;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border: 1.5px solid var(--blue-light);
   transition: border-color 0.2s ease, transform 0.2s ease;
   cursor: pointer;
 }
 
 .pill-btn-ghost:hover {
-  border-color: var(--ink);
+  border-color: var(--blue);
   transform: translateY(-1px);
 }
