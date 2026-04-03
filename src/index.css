@@ -1,21 +1,45 @@
 /* =============================================
-   GLOBAL VARIABLES & RESET
+   DESIGN TOKENS — Found Paper Romanticism
    ============================================= */
 
 :root {
-  --cream: #F7F4EF;
-  --white: #FFFFFF;
-  --rust: #C4622D;
-  --rust-light: #EEDAD0;
-  --rust-muted: #E8C4B0;
-  --charcoal: #1C1C1C;
-  --gray-text: #6B6B6B;
-  --gray-border: #E2DEDA;
-  --tag-bg: #F0EBE5;
-  --tag-text: #7A4A30;
-  --font-display: 'Lora', Georgia, serif;
-  --font-body: 'DM Sans', sans-serif;
+  /* Paper palette */
+  --paper:        #F4EDE0;   /* aged paper — main bg */
+  --paper-warm:   #EDE3CF;   /* warmer paper — alt sections */
+  --paper-dark:   #E2D6BC;   /* darker paper — dividers, strips */
+  --cream:        #FAF7F0;   /* near-white paper */
+
+  /* Ink */
+  --ink:          #1C1510;   /* deep warm near-black */
+  --ink-mid:      #4A3828;   /* medium ink — body text */
+  --ink-light:    #8B7355;   /* pale ink — captions, meta */
+  --ink-pale:     #C8B89A;   /* faint ink — rules, borders */
+
+  /* Stamp accents — used surgically */
+  --stamp-red:    #B33A2B;   /* vermillion */
+  --stamp-blue:   #2B4A7A;   /* cobalt */
+  --mustard:      #C09428;   /* golden mustard */
+
+  /* Legacy aliases keep case-study pages working */
+  --rust:         #B33A2B;
+  --rust-light:   #EDD9CE;
+  --rust-muted:   #E8C4B0;
+  --charcoal:     #1C1510;
+  --white:        #FFFFFF;
+  --gray-text:    #8B7355;
+  --gray-border:  #C8B89A;
+  --tag-bg:       transparent;
+  --tag-text:     #4A3828;
+
+  /* Typography */
+  --font-display: 'EB Garamond', Georgia, serif;
+  --font-label:   'Courier Prime', 'Courier New', monospace;
+  --font-body:    'DM Sans', sans-serif;
 }
+
+/* =============================================
+   RESET
+   ============================================= */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -23,29 +47,33 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  color: var(--charcoal);
-  background-color: var(--white);
+  color: var(--ink);
+  background-color: var(--paper);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+/* Paper grain — the single most impactful texture detail */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+img { max-width: 100%; display: block; }
+
+a { text-decoration: none; color: inherit; }
 
 button {
   cursor: pointer;
@@ -66,12 +94,7 @@ button {
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger helpers — add data-delay="1" through "5" */
+.reveal.in-view      { opacity: 1; transform: translateY(0); }
 .reveal[data-delay="1"] { transition-delay: 0.10s; }
 .reveal[data-delay="2"] { transition-delay: 0.20s; }
 .reveal[data-delay="3"] { transition-delay: 0.30s; }
@@ -82,29 +105,9 @@ button {
    ANIMATIONS
    ============================================= */
 
-@keyframes floatA {
-  0%, 100% { transform: translateY(0px) rotate(-2deg); }
-  50%       { transform: translateY(-8px) rotate(-2deg); }
-}
-
-@keyframes floatB {
-  0%, 100% { transform: translateY(0px) rotate(3deg); }
-  50%       { transform: translateY(-12px) rotate(3deg); }
-}
-
-@keyframes floatC {
-  0%, 100% { transform: translateY(0px) rotate(1deg); }
-  50%       { transform: translateY(-10px) rotate(1deg); }
-}
-
-@keyframes floatD {
-  0%, 100% { transform: translateY(0px) rotate(-4deg); }
-  50%       { transform: translateY(-6px) rotate(-4deg); }
-}
-
-@keyframes floatE {
-  0%, 100% { transform: translateY(0px) rotate(2deg); }
-  50%       { transform: translateY(-14px) rotate(2deg); }
+@keyframes floatStraight {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
 }
 
 @keyframes ticker {
@@ -113,47 +116,52 @@ button {
 }
 
 /* =============================================
-   UTILITY
+   UTILITY — BUTTONS
+   (stamp-impression aesthetic)
    ============================================= */
 
 .pill-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: var(--rust);
-  color: var(--white);
-  border-radius: 999px;
-  padding: 14px 28px;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 500;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 2px;
+  padding: 13px 28px;
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   transition: background 0.2s ease, transform 0.2s ease;
   cursor: pointer;
   border: none;
 }
 
 .pill-btn:hover {
-  background: #a8512a;
+  background: var(--stamp-red);
   transform: translateY(-1px);
 }
 
 .pill-btn-ghost {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   background: transparent;
-  color: var(--charcoal);
-  border-radius: 999px;
-  padding: 13px 27px;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 500;
-  border: 1.5px solid var(--gray-border);
+  color: var(--ink);
+  border-radius: 2px;
+  padding: 12px 27px;
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--ink-pale);
   transition: border-color 0.2s ease, transform 0.2s ease;
   cursor: pointer;
 }
 
 .pill-btn-ghost:hover {
-  border-color: var(--charcoal);
+  border-color: var(--ink);
   transform: translateY(-1px);
 }

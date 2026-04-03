@@ -1,36 +1,41 @@
+/* =============================================
+   NAV — newspaper masthead aesthetic
+   ============================================= */
+
 .nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-border);
-  transition: box-shadow 0.3s ease;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink-pale);
+  transition: border-color 0.3s ease;
 }
 
 .nav--scrolled {
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  border-bottom-color: var(--ink-light);
 }
 
 .nav__inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 60px;
   height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Name — elegant italic Garamond */
 .nav__name {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.1rem;
-  color: var(--charcoal);
+  font-size: 1.15rem;
   font-weight: 500;
-  letter-spacing: -0.01em;
+  color: var(--ink);
   text-decoration: none;
+  letter-spacing: -0.01em;
   flex-shrink: 0;
 }
 
@@ -47,11 +52,14 @@
   flex-shrink: 0;
 }
 
+/* Links — Courier Prime, all-caps, tracked */
 .nav__link {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-family: var(--font-label);
+  font-size: 0.65rem;
   font-weight: 400;
-  color: var(--gray-text);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-light);
   text-decoration: none;
   transition: color 0.2s ease;
   position: relative;
@@ -59,48 +67,30 @@
 
 .nav__link:hover,
 .nav__link--active {
-  color: var(--charcoal);
+  color: var(--ink);
 }
 
+/* Active underline — thin red rule */
 .nav__link--active::after {
   content: '';
   position: absolute;
   bottom: -4px;
   left: 0;
   right: 0;
-  height: 1.5px;
-  background: var(--rust);
-  border-radius: 2px;
+  height: 1px;
+  background: var(--stamp-red);
 }
 
-.nav__link--external {
-  color: var(--rust);
-}
-
-.nav__link--external:hover {
-  color: #a8512a;
-}
+.nav__link--external { color: var(--stamp-red); }
+.nav__link--external:hover { color: #d45044; }
 
 @media (max-width: 768px) {
-  .nav__inner {
-    padding: 0 20px;
-  }
-
-  .nav__center {
-    gap: 20px;
-  }
-
-  .nav__right {
-    gap: 16px;
-  }
-
-  .nav__link {
-    font-size: 0.82rem;
-  }
+  .nav__inner { padding: 0 24px; }
+  .nav__center { gap: 20px; }
+  .nav__right  { gap: 16px; }
+  .nav__link   { font-size: 0.6rem; }
 }
 
 @media (max-width: 480px) {
-  .nav__center {
-    display: none;
-  }
+  .nav__center { display: none; }
 }

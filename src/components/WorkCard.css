@@ -1,39 +1,48 @@
+/* =============================================
+   WORK CARD — Found Paper Romanticism
+   ============================================= */
+
 .work-card {
-  border-radius: 20px;
-  overflow: hidden;
-  background: var(--white);
-  border: 1px solid var(--gray-border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
   display: grid;
-  grid-template-columns: 45% 1fr;
+  grid-template-columns: 44% 1fr;
+  gap: 0;
+  padding: 56px 0;
+  transition: none;
+  position: relative;
 }
 
 .work-card--hovered {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  transform: none;
+  box-shadow: none;
 }
 
-/* Image area */
+/* ── Image area — mounted specimen look ── */
 .work-card__image {
   position: relative;
-  min-height: 420px;
+  min-height: 400px;
   cursor: pointer;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--paper-dark);
+  /* Inner mount: bright inset border gives framed-photo feel */
+  box-shadow:
+    0 2px 4px rgba(28, 21, 16, 0.06),
+    0 8px 28px rgba(28, 21, 16, 0.14);
 }
 
 .work-card__image-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0);
-  transition: background 0.3s ease;
+  background: rgba(28, 21, 16, 0);
+  transition: background 0.4s ease;
   z-index: 1;
 }
 
 .work-card--hovered .work-card__image-overlay {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(28, 21, 16, 0.32);
 }
 
 .work-card__image-photo {
@@ -45,6 +54,12 @@
   object-position: center top;
   display: block;
   z-index: 0;
+  filter: sepia(5%);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-card--hovered .work-card__image-photo {
+  transform: scale(1.03);
 }
 
 .work-card__image-placeholder {
@@ -54,32 +69,31 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  color: rgba(255, 255, 255, 0.25);
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  color: var(--ink-pale);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
-.work-card__image-icon {
-  font-size: 1.5rem;
-  opacity: 0.3;
-}
+.work-card__image-icon { font-size: 1.2rem; opacity: 0.3; }
 
 .work-card__image-hover-cta {
   position: absolute;
   z-index: 2;
-  bottom: 28px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%) translateY(8px);
   opacity: 0;
-  background: var(--rust);
-  color: var(--white);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 12px 24px;
-  border-radius: 999px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 1px;
   white-space: nowrap;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -89,26 +103,32 @@
   transform: translateX(-50%) translateY(0);
 }
 
-/* Content */
+/* ── Content ── */
 .work-card__content {
-  padding: 36px 40px 40px;
+  padding: 0 0 0 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .work-card__meta-row {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 22px;
   flex-wrap: wrap;
 }
 
+/* Number as ink-stamp label */
 .work-card__number {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gray-text);
+  color: var(--cream);
+  background: var(--ink);
+  padding: 4px 10px;
   flex-shrink: 0;
 }
 
@@ -118,115 +138,113 @@
   gap: 6px;
 }
 
+/* Garamond title — the editorial anchor */
 .work-card__title {
   font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--charcoal);
-  line-height: 1.2;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.15;
   margin-bottom: 10px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .work-card__category {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-style: italic;
-  color: var(--rust);
-  margin-bottom: 14px;
-  font-weight: 400;
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stamp-red);
+  margin-bottom: 16px;
 }
 
 .work-card__description {
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--gray-text);
-  line-height: 1.7;
-  margin-bottom: 24px;
-  max-width: 680px;
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: 28px;
+  max-width: 500px;
 }
 
-.work-card__impact {
-  margin-bottom: 28px;
-}
+.work-card__impact { margin-bottom: 32px; }
 
 .work-card__impact-label {
   display: block;
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gray-text);
-  margin-bottom: 10px;
+  color: var(--ink-light);
+  margin-bottom: 12px;
 }
 
 .work-card__impact ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .work-card__impact li {
   font-family: var(--font-body);
-  font-size: 0.88rem;
-  color: var(--charcoal);
+  font-size: 0.85rem;
+  color: var(--ink-mid);
   padding-left: 20px;
   position: relative;
   line-height: 1.5;
 }
 
 .work-card__impact li::before {
-  content: '→';
+  content: '—';
   position: absolute;
   left: 0;
-  color: var(--rust);
-  font-size: 0.85rem;
+  color: var(--stamp-red);
 }
 
+/* CTA — underline link style */
 .work-card__cta {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--rust);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
   text-decoration: none;
-  transition: gap 0.2s ease, color 0.2s ease;
-  gap: 4px;
+  gap: 8px;
   cursor: pointer;
+  border-bottom: 1px solid var(--ink-pale);
+  padding-bottom: 3px;
+  width: fit-content;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .work-card__cta:hover {
-  color: #a8512a;
+  color: var(--stamp-red);
+  border-color: var(--stamp-red);
 }
 
 .work-card__cta--disabled {
-  color: var(--gray-text);
+  color: var(--ink-light);
   cursor: default;
 }
 
+/* ── Responsive ── */
 @media (max-width: 1024px) {
   .work-card {
     grid-template-columns: 1fr;
+    padding: 48px 0;
   }
-
-  .work-card__image {
-    min-height: 300px;
-  }
+  .work-card__image { min-height: 300px; }
+  .work-card__content { padding: 32px 0 0; }
 }
 
 @media (max-width: 768px) {
-  .work-card__image {
-    min-height: 240px;
-  }
-
-  .work-card__content {
-    padding: 24px 24px 28px;
-  }
-
-  .work-card__title {
-    font-size: 1.5rem;
-  }
+  .work-card { padding: 36px 0; }
+  .work-card__image { min-height: 240px; }
+  .work-card__content { padding: 24px 0 0; }
+  .work-card__title { font-size: 1.5rem; }
 }
