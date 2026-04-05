@@ -27,7 +27,6 @@ export default function DesignNote({ type = 'decision', label, heading, body, ta
         <div className="dn__top">
           <span className="dn__icon">{icons[type]}</span>
           <span className="dn__label">{label}</span>
-          {nda && <span className="dn__nda">NDA · Visuals redacted</span>}
         </div>
 
         <h3 className="dn__heading">{heading}</h3>

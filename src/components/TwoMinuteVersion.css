@@ -5,89 +5,94 @@
   font-family: var(--font-body);
 }
 
-/* ── Header — static bar ─────────────────────── */
+/* ── Card shell ───────────────────────────── */
+.tmv__card {
+  border: 1px solid var(--gray-border);
+  border-top: 3px solid #3B72B0;
+  border-radius: 12px;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+/* ── Header — lightweight ─────────────────── */
 .tmv__header {
-  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: var(--charcoal);
-  color: var(--white);
-  border-radius: 16px 16px 0 0;
-  padding: 18px 28px;
-  font-family: var(--font-body);
+  padding: 18px 28px 16px;
+  border-bottom: 1px solid var(--gray-border);
 }
 
 .tmv__header-left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 
 .tmv__lightning {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1;
 }
 
 .tmv__title {
-  display: block;
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
   font-weight: 600;
-  color: var(--white);
-  letter-spacing: 0.01em;
+  color: var(--charcoal);
+  letter-spacing: 0.02em;
 }
 
 .tmv__subtitle {
-  display: block;
+  font-family: var(--font-body);
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.45);
-  margin-top: 2px;
+  color: var(--gray-text);
+  margin-left: 4px;
+  font-weight: 400;
 }
 
-/* ── Body — always visible ───────────────────── */
-.tmv__body {
-  background: var(--cream);
-  border-radius: 0 0 16px 16px;
-  border: 1px solid var(--gray-border);
-  border-top: none;
-}
-
-/* ── 4-column grid ───────────────────────────── */
+/* ── Single-column sections ───────────────── */
 .tmv__grid {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr 1.4fr 1.4fr;
-  gap: 0;
-  padding: 32px 0 24px;
+  display: flex;
+  flex-direction: column;
 }
 
-.tmv__col {
-  padding: 0 28px;
-  border-right: 1px solid var(--gray-border);
+.tmv__cell {
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--gray-border);
 }
 
-.tmv__col:last-child {
-  border-right: none;
+.tmv__cell:last-child {
+  border-bottom: none;
 }
 
+/* ── Cell label ───────────────────────────── */
 .tmv__col-label {
-  display: block;
-  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--rust);
-  margin-bottom: 12px;
+  color: #3B72B0;
+  margin-bottom: 10px;
 }
 
+.tmv__icon {
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ── Context ──────────────────────────────── */
 .tmv__col-role {
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--charcoal);
-  line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333333;
+  line-height: 1.65;
   margin-bottom: 12px;
 }
 
-/* Tag pill — wraps properly */
 .tmv__pill {
   display: inline-block;
   background: transparent;
@@ -96,19 +101,18 @@
   padding: 3px 10px;
   font-size: 0.72rem;
   color: var(--gray-text);
-  white-space: normal;
-  word-break: break-word;
-  max-width: 100%;
   line-height: 1.5;
 }
 
+/* ── Problem ──────────────────────────────── */
 .tmv__col-body {
-  font-size: 0.88rem;
-  color: var(--gray-text);
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333333;
   line-height: 1.65;
 }
 
-/* Approach bullets */
+/* ── Approach bullets ─────────────────────── */
 .tmv__bullets {
   list-style: none;
   display: flex;
@@ -117,108 +121,92 @@
 }
 
 .tmv__bullets li {
-  font-size: 0.85rem;
-  color: var(--charcoal);
-  padding-left: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333333;
+  padding-left: 18px;
   position: relative;
-  line-height: 1.5;
+  line-height: 1.65;
 }
 
 .tmv__bullets li::before {
   content: '→';
   position: absolute;
   left: 0;
-  color: var(--rust);
+  color: #3B72B0;
   font-size: 0.8rem;
+  top: 3px;
 }
 
-/* Impact column — same cream bg as rest */
-.tmv__col--impact {
-  background: transparent;
-}
-
+/* ── Impact stats — inline row ────────────── */
 .tmv__stats {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .tmv__stat {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: baseline;
+  gap: 12px;
 }
 
 .tmv__stat-number {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--rust);
-  line-height: 1.1;
+  line-height: 1;
+  min-width: 60px;
 }
 
 .tmv__stat-label {
-  font-size: 0.75rem;
-  color: var(--gray-text);
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333333;
   line-height: 1.4;
 }
 
-/* ── Footer ───────────────────────────────────── */
+/* ── Footer ───────────────────────────────── */
 .tmv__footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 14px;
-  padding: 14px 28px 18px;
+  gap: 12px;
+  padding: 14px 28px;
   border-top: 1px solid var(--gray-border);
-  font-size: 0.8rem;
+  font-size: 0.88rem;
+  font-weight: 400;
   color: var(--gray-text);
 }
 
 .tmv__read-more {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 500;
-  color: var(--rust);
+  color: #3B72B0;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .tmv__read-more:hover {
-  color: #a8512a;
+  color: var(--charcoal);
 }
 
-/* ── Responsive ───────────────────────────────── */
-@media (max-width: 900px) {
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 600px) {
   .tmv {
     padding: 0 20px;
   }
 
-  .tmv__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-  }
-
-  .tmv__col {
-    border-right: none;
-    border-bottom: 1px solid var(--gray-border);
-    padding: 20px 24px;
-  }
-
-  .tmv__col:last-child {
-    border-bottom: none;
-  }
-
-  .tmv__col--impact {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 600px) {
-  .tmv__grid {
-    grid-template-columns: 1fr;
+  .tmv__cell {
+    padding: 20px 20px;
   }
 
   .tmv__header {
     padding: 16px 20px;
+  }
+
+  .tmv__footer {
+    padding: 12px 20px;
   }
 }

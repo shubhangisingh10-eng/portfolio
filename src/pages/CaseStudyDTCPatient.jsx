@@ -43,6 +43,30 @@ export default function CaseStudyDTCPatient() {
         </div>
       </header>
 
+      {/* Hero image */}
+      <div className="cs__hero-img">
+        <img
+          src="/Case Study 2.png"
+          alt="DTC Patient Activation Journey — project overview"
+          style={{
+            width: '100%',
+            borderRadius: '12px',
+            display: 'block',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.12)',
+          }}
+        />
+        <p style={{
+          fontFamily: 'var(--font-body)',
+          fontSize: '0.8rem',
+          fontStyle: 'italic',
+          color: 'var(--gray-text)',
+          marginTop: '10px',
+          paddingLeft: '4px',
+        }}>
+          Healthcare DTC patient activation — health assessment and onboarding journey
+        </p>
+      </div>
+
       {/* ── 2 Minute Version ── */}
       <TwoMinuteVersion
         role="Product Designer — Webflow design variants, Figma build-ready specs, and engineering handoff. Collaborated with a second designer, growth analyst, PM, and consultant."
@@ -62,22 +86,8 @@ export default function CaseStudyDTCPatient() {
         ]}
       />
 
-      {/* Hero image */}
-      <div className="cs__hero-img" id="cs-content">
-        <img
-          src="/Case Study 2.png"
-          alt="DTC Patient Activation Journey — project overview"
-          style={{
-            width: '100%',
-            borderRadius: '12px',
-            display: 'block',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.12)',
-          }}
-        />
-      </div>
-
       {/* Content sections */}
-      <div className="cs__sections">
+      <div className="cs__sections" id="cs-content">
 
         {/* WHERE IT BROKE */}
         <section className="cs__section">
@@ -105,6 +115,8 @@ export default function CaseStudyDTCPatient() {
             <p>Over time, this led to drop-off after initial engagement, low progression toward key actions, and weak signals of user intent. The experience wasn't ineffective — it just wasn't structured to support decision-making.</p>
           </div>
         </section>
+
+        <p className="cs__nda-note">🔒 This project is under NDA — design visuals have been replaced with written design notes throughout.</p>
 
         {/* THE CHALLENGE */}
         <section className="cs__section">

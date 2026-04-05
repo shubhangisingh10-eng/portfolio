@@ -1,6 +1,5 @@
 .faq__label {
   font-family: var(--font-display);
-  font-style: italic;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -29,9 +28,9 @@
   cursor: pointer;
   text-align: left;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
-  color: var(--charcoal);
+  color: #333333;
   line-height: 1.5;
   transition: color 0.2s ease;
 }
@@ -66,7 +65,7 @@
 
 .faq__answer p {
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: var(--gray-text);
+  font-size: 1rem;
+  color: #333333;
   line-height: 1.7;
 }

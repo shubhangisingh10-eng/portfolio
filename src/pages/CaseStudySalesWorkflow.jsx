@@ -44,27 +44,8 @@ export default function CaseStudySalesWorkflow() {
         </div>
       </header>
 
-      {/* ── 2 Minute Version ── */}
-      <TwoMinuteVersion
-        role="Sole designer — embedded in a 14-person cross-functional team. Owned the full design process end-to-end: discovery, stakeholder collaboration, Salesforce Lightning design, and exec presentation."
-        timeline="Enterprise · GTM Platform"
-        problem="Sales reps were losing time to everything around selling — manual account creation, approval bottlenecks, and constant context-switching between tools. The process created friction at every deal stage, slowing velocity and hurting forecasting."
-        approach={[
-          'Ran discovery sessions with 5 workstream owners to understand each team\'s vision and constraints',
-          'Designed the end-to-end flow using Salesforce Lightning Design System (SLDS)',
-          'Used designs as a shared language to align workstream owners and define what engineering needed to build',
-          'Built the North Star prototype used to secure CTO and CFO buy-in from the client team',
-          'Handed off engineering-ready specs that gave the build team a clear, confident starting point',
-        ]}
-        impact={[
-          { stat: '15–25%', label: 'Faster deal progression' },
-          { stat: '20–30%', label: 'Reduction in manual effort per deal' },
-          { stat: '30–40%', label: 'Standard deals moved to self-service' },
-        ]}
-      />
-
       {/* Hero image — real screenshot */}
-      <div className="cs__hero-img" id="cs-content">
+      <div className="cs__hero-img">
         <img
           src="/Case Study 1.png"
           alt="Salesforce Lightning — redesigned account and sales workflow"
@@ -87,8 +68,27 @@ export default function CaseStudySalesWorkflow() {
         </p>
       </div>
 
+      {/* ── 2 Minute Version ── */}
+      <TwoMinuteVersion
+        role="Sole designer — embedded in a 14-person cross-functional team. Owned the full design process end-to-end: discovery, stakeholder collaboration, Salesforce Lightning design, and exec presentation."
+        timeline="Enterprise · GTM Platform"
+        problem="Sales reps were losing time to everything around selling — manual account creation, approval bottlenecks, and constant context-switching between tools. The process created friction at every deal stage, slowing velocity and hurting forecasting."
+        approach={[
+          'Ran discovery sessions with 5 workstream owners to understand each team\'s vision and constraints',
+          'Designed the end-to-end flow using Salesforce Lightning Design System (SLDS)',
+          'Used designs as a shared language to align workstream owners and define what engineering needed to build',
+          'Built the North Star prototype used to secure CTO and CFO buy-in from the client team',
+          'Handed off engineering-ready specs that gave the build team a clear, confident starting point',
+        ]}
+        impact={[
+          { stat: '15–25%', label: 'Faster deal progression' },
+          { stat: '20–30%', label: 'Reduction in manual effort per deal' },
+          { stat: '30–40%', label: 'Standard deals moved to self-service' },
+        ]}
+      />
+
       {/* Content sections */}
-      <div className="cs__sections">
+      <div className="cs__sections" id="cs-content">
 
         {/* WHERE IT BROKE */}
         <section className="cs__section">
@@ -112,6 +112,8 @@ export default function CaseStudySalesWorkflow() {
             </div>
           </div>
         </section>
+
+        <p className="cs__nda-note">🔒 This project is under NDA — design visuals have been replaced with written design notes throughout.</p>
 
         {/* THE CHALLENGE */}
         <section className="cs__section">

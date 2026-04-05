@@ -43,27 +43,8 @@ export default function CaseStudyGenAISales() {
         </div>
       </header>
 
-      {/* ── 2 Minute Version ── */}
-      <TwoMinuteVersion
-        role="Sole Experience Designer — embedded in a senior cross-functional team. Owned all design from initial stakeholder workshops through prototype delivery. Spent 3 days personally in the field during live sales training to ground the work in real behavior."
-        timeline="Energy · GenAI · B2B Sales Enablement"
-        problem="B2B energy sales reps at a major global energy company spent too much time on low-value activities — manually prioritising leads by gut feel, building proposals from scratch, and working without structured coaching. The result was inconsistent performance, slow sales cycles, and lost revenue at scale."
-        approach={[
-          'Led stakeholder workshops with the CEO, senior advisors, and sales leaders to map the end-to-end sales journey and surface pain points',
-          'Spent 3 days embedded in live client sales training — personally shadowing pitches, observing role-play exercises, and conducting contextual inquiries with reps',
-          'Developed 10+ initial concepts, refined through real-time feedback from stakeholders and sales managers',
-          'Built an interactive AI-powered sales tool prototype with lead scoring, next-best-action recommendations, and automated proposal generation',
-          'Prototype unveiled by the CEO at the Annual Sales Conference — demoed to 120+ top sales associates and the leadership board',
-        ]}
-        impact={[
-          { stat: '€100M+', label: 'Additional margin potential' },
-          { stat: '30%', label: 'Reduction in sales cycle time' },
-          { stat: '50%', label: 'Less time spent on proposal creation' },
-        ]}
-      />
-
       {/* Hero image */}
-      <div className="cs__hero-img" id="cs-content">
+      <div className="cs__hero-img">
         <img
           src="/Case Study 3.png"
           alt="GenAI-powered sales enablement tool — energy sector"
@@ -86,8 +67,27 @@ export default function CaseStudyGenAISales() {
         </p>
       </div>
 
+      {/* ── 2 Minute Version ── */}
+      <TwoMinuteVersion
+        role="Sole Experience Designer — embedded in a senior cross-functional team. Owned all design from initial stakeholder workshops through prototype delivery. Spent 3 days personally in the field during live sales training to ground the work in real behavior."
+        timeline="Energy · GenAI · B2B Sales Enablement"
+        problem="B2B energy sales reps at a major global energy company spent too much time on low-value activities — manually prioritising leads by gut feel, building proposals from scratch, and working without structured coaching. The result was inconsistent performance, slow sales cycles, and lost revenue at scale."
+        approach={[
+          'Led stakeholder workshops with the CEO, senior advisors, and sales leaders to map the end-to-end sales journey and surface pain points',
+          'Spent 3 days embedded in live client sales training — personally shadowing pitches, observing role-play exercises, and conducting contextual inquiries with reps',
+          'Developed 10+ initial concepts, refined through real-time feedback from stakeholders and sales managers',
+          'Built an interactive AI-powered sales tool prototype with lead scoring, next-best-action recommendations, and automated proposal generation',
+          'Prototype unveiled by the CEO at the Annual Sales Conference — demoed to 120+ top sales associates and the leadership board',
+        ]}
+        impact={[
+          { stat: '€100M+', label: 'Additional margin potential' },
+          { stat: '30%', label: 'Reduction in sales cycle time' },
+          { stat: '50%', label: 'Less time spent on proposal creation' },
+        ]}
+      />
+
       {/* Content sections */}
-      <div className="cs__sections">
+      <div className="cs__sections" id="cs-content">
 
         {/* WHERE IT BROKE */}
         <section className="cs__section">
@@ -112,6 +112,8 @@ export default function CaseStudyGenAISales() {
             </div>
           </div>
         </section>
+
+        <p className="cs__nda-note">🔒 This project is under NDA — design visuals have been replaced with written design notes throughout.</p>
 
         {/* THE CHALLENGE */}
         <section className="cs__section">

@@ -138,11 +138,6 @@ export default function HomePage() {
     <main className="home">
       {/* ======================== HERO ======================== */}
       <section className="hero">
-        {/* Eyebrow strip */}
-        <div className="hero__eyebrow-strip">
-          <span className="hero__eyebrow-text">Shubhangi Singh · Portfolio 2025</span>
-          <span className="hero__eyebrow-text">Product Designer · BCG X · New York</span>
-        </div>
 
         <div className="hero__inner">
           {/* Left: text content */}
@@ -150,11 +145,11 @@ export default function HomePage() {
             <span className="hero__eyebrow">№ 001 — Experience Design</span>
             <div className="hero__rule" />
             <h1 className="hero__headline">
-              Turning ambiguity into{' '}
-              <em className="hero__em">products that work</em>
-              {' '}for people and the business.
+              Hi! I'm Shubhangi,<br />
+              <em className="hero__em">Product Designer</em>
+              {' '}at BCG X
             </h1>
-            <p className="hero__sub">5+ years · Currently at BCG X · Pratt Institute</p>
+            <p className="hero__sub">5+ years of experience shaping 0→1 products, design systems, and data-driven UX—focused on creating empathetic, human-centered experiences.</p>
             <div className="hero__cta-row">
               <a href="#work" className="pill-btn">View my work ↓</a>
             </div>
@@ -173,7 +168,6 @@ export default function HomePage() {
                 alt="Shubhangi working at BCG X office with NYC skyline view"
                 className="hero__image"
               />
-              <span className="hero__photo-caption">New York City · 2024</span>
             </div>
           </div>
         </div>

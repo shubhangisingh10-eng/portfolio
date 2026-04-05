@@ -1,52 +1,38 @@
 import React from 'react'
 import './TwoMinuteVersion.css'
 
-/**
- * TwoMinuteVersion — always open, no toggle
- *
- * Props:
- *   role        – string
- *   timeline    – string
- *   problem     – string
- *   approach    – string[]
- *   impact      – { stat: string, label: string }[]
- */
 export default function TwoMinuteVersion({ role, timeline, problem, approach, impact }) {
   return (
     <div className="tmv">
-      {/* Header — static, no toggle */}
-      <div className="tmv__header">
-        <div className="tmv__header-left">
-          <span className="tmv__lightning">⚡</span>
-          <div>
+      <div className="tmv__card">
+
+        {/* Header */}
+        <div className="tmv__header">
+          <div className="tmv__header-left">
+            <span className="tmv__lightning">⚡</span>
             <span className="tmv__title">2 Minute Version</span>
-            <span className="tmv__subtitle">Key highlights for a quick read</span>
+            <span className="tmv__subtitle">— key highlights for a quick read</span>
           </div>
         </div>
-      </div>
 
-      {/* Body — always visible */}
-      <div className="tmv__body">
         <div className="tmv__grid">
 
-          {/* Col 1 — Context */}
-          <div className="tmv__col">
-            <span className="tmv__col-label">Context</span>
+          {/* Context */}
+          <div className="tmv__cell">
+            <span className="tmv__col-label"><span className="tmv__icon">🧭</span> Context</span>
             <p className="tmv__col-role">{role}</p>
-            {timeline && (
-              <span className="tmv__pill">{timeline}</span>
-            )}
+            {timeline && <span className="tmv__pill">{timeline}</span>}
           </div>
 
-          {/* Col 2 — Problem */}
-          <div className="tmv__col">
-            <span className="tmv__col-label">The Problem</span>
+          {/* Problem */}
+          <div className="tmv__cell">
+            <span className="tmv__col-label"><span className="tmv__icon">🔍</span> The Problem</span>
             <p className="tmv__col-body">{problem}</p>
           </div>
 
-          {/* Col 3 — Approach */}
-          <div className="tmv__col">
-            <span className="tmv__col-label">What I Did</span>
+          {/* What I Did */}
+          <div className="tmv__cell">
+            <span className="tmv__col-label"><span className="tmv__icon">🛠️</span> What I Did</span>
             <ul className="tmv__bullets">
               {approach.map((item, i) => (
                 <li key={i}>{item}</li>
@@ -54,9 +40,9 @@ export default function TwoMinuteVersion({ role, timeline, problem, approach, im
             </ul>
           </div>
 
-          {/* Col 4 — Impact */}
-          <div className="tmv__col tmv__col--impact">
-            <span className="tmv__col-label">Impact</span>
+          {/* Impact */}
+          <div className="tmv__cell">
+            <span className="tmv__col-label"><span className="tmv__icon">📈</span> Impact</span>
             <div className="tmv__stats">
               {impact.map((item, i) => (
                 <div key={i} className="tmv__stat">
@@ -69,10 +55,12 @@ export default function TwoMinuteVersion({ role, timeline, problem, approach, im
 
         </div>
 
+        {/* Footer */}
         <div className="tmv__footer">
           <span>Want the full story?</span>
           <a href="#cs-content" className="tmv__read-more">Continue reading ↓</a>
         </div>
+
       </div>
     </div>
   )

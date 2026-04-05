@@ -5,9 +5,9 @@ export default function TagChip({ label }) {
     <span
       style={{
         display: 'inline-block',
-        background: 'var(--blue-soft)',
-        color: 'var(--blue)',
-        border: '1px solid var(--blue-light)',
+        background: '#EBF3FC',
+        color: '#3B72B0',
+        border: '1px solid #93BBDA',
         borderRadius: '100px',
         padding: '4px 12px',
         fontSize: '0.68rem',

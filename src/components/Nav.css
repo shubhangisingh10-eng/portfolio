@@ -1,22 +1,16 @@
-/* =============================================
-   NAV — frosted glass, modern minimal
-   ============================================= */
-
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(61, 104, 245, 0.08);
+  border-bottom: 1px solid rgba(189, 208, 220, 0.6);
   transition: box-shadow 0.3s ease;
 }
 
 .nav--scrolled {
-  box-shadow: 0 4px 24px rgba(13, 13, 26, 0.06);
+  box-shadow: 0 4px 24px rgba(28, 59, 80, 0.08);
 }
 
 .nav__inner {
@@ -29,15 +23,13 @@
   justify-content: space-between;
 }
 
-/* Italic serif name */
 .nav__name {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.15rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
   font-weight: 500;
   color: var(--ink);
   text-decoration: none;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   flex-shrink: 0;
 }
 
@@ -54,7 +46,6 @@
   flex-shrink: 0;
 }
 
-/* Links — clean DM Sans */
 .nav__link {
   font-family: var(--font-body);
   font-size: 0.78rem;
@@ -67,24 +58,20 @@
 }
 
 .nav__link:hover,
-.nav__link--active {
-  color: var(--ink);
-}
+.nav__link--active { color: var(--ink); }
 
-/* Active underline — blue */
 .nav__link--active::after {
   content: '';
   position: absolute;
   bottom: -4px;
-  left: 0;
-  right: 0;
+  left: 0; right: 0;
   height: 2px;
-  background: var(--blue);
+  background: #3B72B0;
   border-radius: 1px;
 }
 
-.nav__link--external { color: var(--blue); }
-.nav__link--external:hover { color: #2B52E0; }
+.nav__link--external { color: #3B72B0; }
+.nav__link--external:hover { color: #3A6B88; }
 
 @media (max-width: 768px) {
   .nav__inner { padding: 0 24px; }

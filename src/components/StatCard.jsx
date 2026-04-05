@@ -13,7 +13,7 @@ export default function StatCard({ stat, label }) {
     >
       <div
         style={{
-          fontFamily: 'var(--font-display)',
+          fontFamily: 'var(--font-body)',
           fontSize: '2rem',
           fontWeight: '600',
           color: 'var(--rust)',
@@ -26,8 +26,8 @@ export default function StatCard({ stat, label }) {
       <div
         style={{
           fontFamily: 'var(--font-body)',
-          fontSize: '0.85rem',
-          color: 'var(--gray-text)',
+          fontSize: '1rem',
+          color: '#333333',
           lineHeight: 1.5,
         }}
       >

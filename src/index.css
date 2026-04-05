@@ -1,48 +1,84 @@
 /* =============================================
-   DESIGN TOKENS — Modern White / Blue
+   PP WRITER — local font faces
+   ============================================= */
+
+@font-face {
+  font-family: 'PP Writer';
+  src: url('/fonts/PPWriter-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Writer';
+  src: url('/fonts/PPWriter-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Writer';
+  src: url('/fonts/PPWriter-Bold.otf') format('opentype');
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Writer';
+  src: url('/fonts/PPWriter-BoldItalic.otf') format('opentype');
+  font-weight: 500 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Writer';
+  src: url('/fonts/PPWriter-UltraboldItalic.otf') format('opentype');
+  font-weight: 800 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* =============================================
+   DESIGN TOKENS — Cream / Steel Blue palette
    ============================================= */
 
 :root {
   /* Core backgrounds */
-  --paper:        #FFFFFF;
-  --paper-warm:   #F5F7FF;
-  --paper-dark:   #EBF0FF;
-  --cream:        #FFFFFF;
+  --paper:        #FFFFFF;   /* pure white */
+  --paper-warm:   #F8FAFF;
+  --paper-dark:   #CBD5E1;   /* border */
+  --cream:        #F8FAFF;   /* card bg — barely blue-tinted */
 
-  /* Text hierarchy */
-  --ink:          #0D0D1A;
-  --ink-mid:      #3A3A5C;
-  --ink-light:    #7272A0;
-  --ink-pale:     #C0C0D8;
+  /* Text hierarchy — near black */
+  --ink:          #111827;
+  --ink-mid:      #374151;
+  --ink-light:    #6B7280;
+  --ink-pale:     #94A3B8;   /* decorative only */
 
-  /* Blue accent system */
-  --blue:         #3D68F5;
-  --blue-light:   #C8D9FF;
-  --blue-soft:    #EBF0FF;
+  /* Blue accent system — BCG X blue */
+  --blue:         #3B72B0;
+  --blue-light:   #93BBDA;
+  --blue-soft:    #EBF3FC;
 
-  /* Legacy — keeps case study pages intact */
-  --stamp-red:    #C0392B;
-  --stamp-blue:   #3D68F5;
-  --mustard:      #3D68F5;
-  --rust:         #C0392B;
-  --rust-light:   #FFE8E5;
-  --rust-muted:   #FFCDC8;
-  --charcoal:     #0D0D1A;
-  --white:        #FFFFFF;
-  --gray-text:    #7272A0;
-  --gray-border:  #C0C0D8;
-  --tag-bg:       transparent;
-  --tag-text:     #3A3A5C;
+  /* Legacy — all mapped to BCG X blue */
+  --stamp-red:    #3B72B0;
+  --stamp-blue:   #3B72B0;
+  --mustard:      #3B72B0;
+  --rust:         #3B72B0;   /* primary accent */
+  --rust-light:   #EBF3FC;
+  --rust-muted:   #93BBDA;
+  --charcoal:     #111827;   /* near-black headings / footer bg */
+  --white:        #FFFFFF;   /* pure white bg */
+  --gray-text:    #6B7280;
+  --gray-border:  #E2E8F0;
+  --tag-bg:       #EBF3FC;
+  --tag-text:     #3B72B0;
 
   /* Typography */
-  --font-display: 'EB Garamond', Georgia, serif;
+  --font-display: 'PP Writer', Georgia, serif;
   --font-label:   'DM Sans', sans-serif;
   --font-body:    'DM Sans', sans-serif;
 }
-
-/* =============================================
-   RESET
-   ============================================= */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -63,19 +99,13 @@ body {
 }
 
 img { max-width: 100%; display: block; }
-
 a { text-decoration: none; color: inherit; }
-
 button {
   cursor: pointer;
   border: none;
   background: none;
   font-family: var(--font-body);
 }
-
-/* =============================================
-   SCROLL REVEAL
-   ============================================= */
 
 .reveal {
   opacity: 0;
@@ -92,24 +122,16 @@ button {
 .reveal[data-delay="4"] { transition-delay: 0.40s; }
 .reveal[data-delay="5"] { transition-delay: 0.50s; }
 
-/* =============================================
-   ANIMATIONS
-   ============================================= */
-
 @keyframes ticker {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* =============================================
-   UTILITY — BUTTONS
-   ============================================= */
-
 .pill-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--blue);
+  background: #111827;
   color: #FFFFFF;
   border-radius: 100px;
   padding: 14px 28px;
@@ -123,9 +145,9 @@ button {
 }
 
 .pill-btn:hover {
-  background: #2B52E0;
+  background: #374151;
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(61, 104, 245, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
 }
 
 .pill-btn-ghost {
@@ -133,19 +155,20 @@ button {
   align-items: center;
   gap: 8px;
   background: transparent;
-  color: var(--blue);
+  color: #111827;
   border-radius: 100px;
   padding: 13px 27px;
   font-family: var(--font-body);
   font-size: 0.84rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  border: 1.5px solid var(--blue-light);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  border: 1.5px solid #111827;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
   cursor: pointer;
 }
 
 .pill-btn-ghost:hover {
-  border-color: var(--blue);
+  background: #111827;
+  color: #FFFFFF;
   transform: translateY(-1px);
 }
