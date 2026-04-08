@@ -142,8 +142,11 @@ export default function HomePage() {
         <div className="hero__inner">
           {/* Left: text content */}
           <div className="hero__content">
-            <span className="hero__eyebrow">№ 001 — Experience Design</span>
-            <div className="hero__rule" />
+            <img
+              src="/illustration.png"
+              alt="Illustration of a product designer at work"
+              className="hero__illustration"
+            />
             <h1 className="hero__headline">
               Hi! I'm Shubhangi,<br />
               <em className="hero__em">Product Designer</em>
@@ -292,11 +295,15 @@ export default function HomePage() {
               <span className="contact__card-value">shubhangisingh.com</span>
               <span className="contact__card-arrow">↗</span>
             </a>
-            <div className="contact__card contact__card--plain">
+            <a
+              href="/Shubhangi Singh_Resume.pdf"
+              download="Shubhangi Singh_Resume.pdf"
+              className="contact__card"
+            >
               <span className="contact__card-label">DOWNLOAD RESUME</span>
-              <span className="contact__card-value">PDF · Available on request</span>
+              <span className="contact__card-value">Shubhangi Singh — PDF</span>
               <span className="contact__card-arrow">↓</span>
-            </div>
+            </a>
           </div>
 
           <a href="mailto:shubhangisingh10@gmail.com" className="pill-btn reveal" data-delay="4">

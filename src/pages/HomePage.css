@@ -157,6 +157,15 @@
   display: block;
 }
 
+.hero__illustration {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 20px;
+}
+
 .hero__photo-caption {
   position: absolute;
   bottom: 16px;

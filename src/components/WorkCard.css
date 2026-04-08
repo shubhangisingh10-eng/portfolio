@@ -207,13 +207,15 @@
 
 @media (max-width: 1024px) {
   .work-card { grid-template-columns: 1fr; padding: 48px 0; }
-  .work-card__image { min-height: 300px; }
+  .work-card__image { min-height: 0; aspect-ratio: 4 / 3; }
+  .work-card__image-photo { object-fit: contain; }
   .work-card__content { padding: 32px 0 0; }
 }
 
 @media (max-width: 768px) {
   .work-card { padding: 36px 0; }
-  .work-card__image { min-height: 240px; }
+  .work-card__image { aspect-ratio: 4 / 3; }
+  .work-card__image-photo { object-fit: contain; }
   .work-card__content { padding: 24px 0 0; }
   .work-card__title { font-size: 1.5rem; }
 }
