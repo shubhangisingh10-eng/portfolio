@@ -143,7 +143,7 @@ export default function HomePage() {
           {/* Left: text content */}
           <div className="hero__content">
             <img
-              src="/01_About Ill.png"
+              src="/about-illustration.png"
               alt="Illustration of a product designer at work"
               className="hero__illustration"
             />
