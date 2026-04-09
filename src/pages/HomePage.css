@@ -87,7 +87,7 @@
   font-size: 1rem;
   letter-spacing: 0em;
   color: #333333;
-  margin-bottom: 40px;
+  margin-bottom: 16px;
   font-weight: 400;
   line-height: 1.7;
   max-width: 480px;
@@ -95,7 +95,7 @@
 
 .hero__cta-row { margin-bottom: 36px; }
 
-.hero__tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 
 .badge {
   font-family: var(--font-body);
@@ -158,12 +158,11 @@
 }
 
 .hero__illustration {
-  width: 100%;
-  max-width: 480px;
+  width: 288px;
   height: auto;
   object-fit: contain;
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .hero__photo-caption {

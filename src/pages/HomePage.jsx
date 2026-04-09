@@ -143,7 +143,7 @@ export default function HomePage() {
           {/* Left: text content */}
           <div className="hero__content">
             <img
-              src="/illustration.png"
+              src="/01_About Ill.png"
               alt="Illustration of a product designer at work"
               className="hero__illustration"
             />
@@ -153,13 +153,15 @@ export default function HomePage() {
               {' '}at BCG X
             </h1>
             <p className="hero__sub">5+ years of experience shaping 0→1 products, design systems, and data-driven UX—focused on creating empathetic, human-centered experiences.</p>
+            <div className="hero__tags">
+              <span className="badge hero__tag">Enterprise SaaS</span>
+              <span className="badge hero__tag">AI-Powered UX</span>
+              <span className="badge hero__tag">Design Systems</span>
+              <span className="badge hero__tag">0 to 1 Products</span>
+              <span className="badge hero__tag">NYC Based</span>
+            </div>
             <div className="hero__cta-row">
               <a href="#work" className="pill-btn">View my work ↓</a>
-            </div>
-            <div className="hero__tags">
-              <span className="badge hero__tag">AI UX Strategy</span>
-              <span className="badge hero__tag">✦ Design Systems</span>
-              <span className="badge hero__tag">NYC Based</span>
             </div>
           </div>
 
