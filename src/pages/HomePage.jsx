@@ -153,7 +153,7 @@ export default function HomePage() {
           <div className="hero__content">
             <h1 className="hero__headline">Hi! I'm Shubhangi</h1>
             <p className="hero__sub">
-              <em className="hero__em">Product Designer</em> with <em className="hero__em">5+ Yrs</em> of experience,
+              <em className="hero__em">Product Designer</em> with <em className="hero__em">5+ Years</em> of experience,
               blending curiosity, human insight, and strategy to shape meaningful digital experiences.
             </p>
             <div className="hero__logos">

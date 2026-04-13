@@ -281,15 +281,15 @@
 
 @media (max-width: 1024px) {
   .work-card { grid-template-columns: 1fr; transform: none !important; }
-  .work-card__image { min-height: 0; aspect-ratio: 4 / 3; border-right: none; border-bottom: 2px dashed rgba(0,0,0,0.10); }
-  .work-card__image-photo { object-fit: contain; }
-  .work-card__content { padding: 32px 36px; }
+  .work-card__image { min-height: 0; aspect-ratio: 16 / 10; border-right: none; border-bottom: 1px dashed rgba(0,0,0,0.10); border-radius: 9px 9px 0 0; }
+  .work-card__image-photo { object-fit: cover; object-position: center center; }
+  .work-card__content { padding: 32px 36px; border-radius: 0 0 9px 9px; }
 }
 
 @media (max-width: 768px) {
   .work-card { margin-bottom: 32px; }
-  .work-card__image { aspect-ratio: 4 / 3; }
-  .work-card__image-photo { object-fit: contain; }
+  .work-card__image { aspect-ratio: 16 / 10; }
+  .work-card__image-photo { object-fit: cover; object-position: center center; }
   .work-card__content { padding: 24px 24px; }
   .work-card__title { font-size: 1.5rem; }
 }
