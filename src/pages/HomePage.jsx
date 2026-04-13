@@ -23,6 +23,7 @@ const projects = [
     bgColor: '#1C2B3A',
     image: '/Case Study 1 Square.png',
     route: '/case-study/sales-workflow-redesign',
+    stamp: { emoji: '🏢', label: 'Enterprise\nSaaS' },
   },
   {
     number: 'PROJECT 02',
@@ -39,6 +40,7 @@ const projects = [
     bgColor: '#1E3028',
     image: '/Case Study 2 Square.png',
     route: '/case-study/dtc-patient-activation',
+    stamp: { emoji: '🩺', label: 'Healthcare\nDTC' },
   },
   {
     number: 'PROJECT 03',
@@ -55,6 +57,7 @@ const projects = [
     bgColor: '#1A2B1E',
     image: '/Case Study 3 Square.png',
     route: '/case-study/genai-sales-enablement',
+    stamp: { emoji: '⚡', label: 'Gen AI\nB2B Sales' },
   },
 ]
 
@@ -66,7 +69,6 @@ const expertiseTags = [
   'Enterprise UX',
   'Design Systems',
   'Interactive Prototyping',
-  'User Research',
 ]
 
 const experience = [
@@ -138,30 +140,34 @@ export default function HomePage() {
     <main className="home">
       {/* ======================== HERO ======================== */}
       <section className="hero">
+        <div className="hero__aurora" aria-hidden="true">
+          <div className="hero__blob hero__blob--1" />
+          <div className="hero__blob hero__blob--2" />
+          <div className="hero__blob hero__blob--3" />
+          <div className="hero__blob hero__blob--4" />
+        </div>
+        <div className="hero__grain" aria-hidden="true" />
 
         <div className="hero__inner">
           {/* Left: text content */}
           <div className="hero__content">
-            <img
-              src="/about-illustration.png"
-              alt="Illustration of a product designer at work"
-              className="hero__illustration"
-            />
-            <h1 className="hero__headline">
-              Hi! I'm Shubhangi,<br />
-              <em className="hero__em">Product Designer</em>
-              {' '}at BCG X
-            </h1>
-            <p className="hero__sub">5+ years of experience shaping 0→1 products, design systems, and data-driven UX—focused on creating empathetic, human-centered experiences.</p>
-            <div className="hero__tags">
-              <span className="badge hero__tag">Enterprise SaaS</span>
-              <span className="badge hero__tag">AI-Powered UX</span>
-              <span className="badge hero__tag">Design Systems</span>
-              <span className="badge hero__tag">0 to 1 Products</span>
-              <span className="badge hero__tag">NYC Based</span>
+            <h1 className="hero__headline">Hi! I'm Shubhangi</h1>
+            <p className="hero__sub">
+              <em className="hero__em">Product Designer</em> with <em className="hero__em">5+ Yrs</em> of experience,
+              blending curiosity, human insight, and strategy to shape meaningful digital experiences.
+            </p>
+            <div className="hero__logos">
+              <span className="hero__logo-label">WORK AT</span>
+              <img src="/Logos/Logo 1.svg" alt="BCG" className="hero__logo" />
+              <span className="hero__logo-divider" />
+              <span className="hero__logo-label">STUDIED AT</span>
+              <img src="/Logos/Logo 2.svg" alt="Pratt Institute" className="hero__logo" />
+              <img src="/Logos/Logo 3.svg" alt="NID" className="hero__logo" />
             </div>
-            <div className="hero__cta-row">
-              <a href="#work" className="pill-btn">View my work ↓</a>
+            <div className="hero__tags">
+              <span className="badge hero__tag">0 TO 1 PRODUCTS</span>
+              <span className="badge hero__tag">AI POWERED UX</span>
+              <span className="badge hero__tag">NYC BASED</span>
             </div>
           </div>
 
@@ -225,7 +231,7 @@ export default function HomePage() {
             {/* Expertise tags */}
             <div className="about__tags reveal" data-delay="4">
               {expertiseTags.map((t) => (
-                <TagChip key={t} label={t} />
+                <span key={t} className="badge hero__tag">{t}</span>
               ))}
             </div>
 
@@ -267,7 +273,7 @@ export default function HomePage() {
         <div className="contact__inner">
           <img src="/Contact.svg" className="section-icon section-icon--center reveal" alt="" aria-hidden="true" />
           <h2 className="contact__headline reveal" data-delay="1">
-            Ready to build something <em className="hero__em">amazing?</em>
+            Ready to build something <em className="contact__em">amazing?</em>
           </h2>
           <p className="contact__sub reveal" data-delay="2">I'd love to connect with you!</p>
 

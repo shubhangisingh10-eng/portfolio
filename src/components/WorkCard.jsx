@@ -14,6 +14,7 @@ export default function WorkCard({
   image,
   route,
   comingSoon,
+  stamp,
 }) {
   const [hovered, setHovered] = useState(false)
   const navigate = useNavigate()
@@ -33,6 +34,12 @@ export default function WorkCard({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
+      {stamp && (
+        <div className="work-card__stamp">
+          <span className="work-card__stamp-emoji">{stamp.emoji}</span>
+          <span className="work-card__stamp-label">{stamp.label}</span>
+        </div>
+      )}
       {/* Image area */}
       <div
         className="work-card__image"
