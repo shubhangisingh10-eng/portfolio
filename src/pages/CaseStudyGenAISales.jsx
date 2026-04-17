@@ -113,8 +113,6 @@ export default function CaseStudyGenAISales() {
           </div>
         </section>
 
-        <p className="cs__nda-note">🔒 This project is under NDA — design visuals have been replaced with written design notes throughout.</p>
-
         {/* THE CHALLENGE */}
         <section className="cs__section">
           <div className="cs__section-label">The Challenge</div>
@@ -155,7 +153,6 @@ export default function CaseStudyGenAISales() {
                 heading="Map the full sales journey before designing a single screen."
                 body="The initial workshops weren't about features — they were about understanding the shape of the problem. By mapping the end-to-end sales journey with leadership, I could identify where the biggest drops in efficiency happened and what the business most needed to move. That map became the backbone of every design decision that followed."
                 tags={['CEO workshops', 'Sales journey mapping', 'Concept ideation', '10+ concepts']}
-                nda={false}
               />
             </div>
 
@@ -169,7 +166,6 @@ export default function CaseStudyGenAISales() {
                 heading="Three days in the field changed what I thought the tool needed to do."
                 body="The initial concept was built around efficiency — faster proposals, better lead scoring. What I observed in the field added a layer I hadn't anticipated: reps were also struggling with confidence. Knowing what to say, how to position an offer, when to escalate. The design needed to address not just speed, but the quality of judgement in the moment. That reframe shaped the next-best-action and coaching features significantly."
                 tags={['3-day field immersion', 'Live sales training', 'Contextual inquiry', 'Role-play observation']}
-                nda={false}
               />
             </div>
 
@@ -182,43 +178,58 @@ export default function CaseStudyGenAISales() {
         <section className="cs__section">
           <div className="cs__section-label">Designing the Solution</div>
           <div className="cs__section-body">
-            <h2 className="cs__section-heading">Four interconnected capabilities — each solving a distinct failure point in the existing sales workflow.</h2>
-            <p>The solution wasn't one screen or one feature. It was a cohesive tool built around the actual shape of a sales rep's day — from deciding who to call, to knowing what to say, to sending a proposal, to learning from what worked.</p>
+            <h2 className="cs__section-heading">Four capabilities built around the actual shape of a sales rep's day.</h2>
+            <p>The solution wasn't one screen or one feature. It was a cohesive tool covering the full arc — deep client intelligence before the meeting, live coaching during it, AI-generated proposals after it, and a personalised output that made every pitch feel specific.</p>
 
-            <div className="cs__img-row">
+            {/* Feature 1 */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 2_1.png" alt="Deep client insights view — Miller Heiman model with personalised account intelligence" className="cs__section-img" />
+              <p className="cs__img-caption">Deep client insights screen — structured around the Miller Heiman sales model, surfacing personalised account intelligence and stakeholder mapping to help reps tailor every conversation</p>
               <DesignNote
                 type="decision"
-                label="Feature 1 · Lead Prioritisation"
-                heading="Stop guessing who to call. Let data make the case."
-                body="Automated lead scoring ranked prospects by conversion likelihood and deal profitability, surfacing the highest-value opportunities at the top of every rep's view. Dynamic segmentation meant reps were always targeting the right client with the right offering — without having to dig through a CRM to figure out where to start."
-                tags={['AI lead scoring', 'Conversion likelihood', 'Dynamic segmentation', 'CRM integration']}
-                nda={true}
-              />
-              <DesignNote
-                type="decision"
-                label="Feature 2 · Sales Guidance"
-                heading="Personalised next-best-action — grounded in what actually works."
-                body="AI-driven recommendations showed each rep their best next move, based on past success patterns across the sales team. Playbooks for different customer profiles gave structure to consultative conversations, while a knowledge base surfaced the behaviours and approaches that top performers used most. The best rep in the room became everyone's co-pilot."
-                tags={['Next-best-action', 'AI playbooks', 'Personalised coaching', 'Peer learning']}
-                nda={true}
+                label="Feature 1 · Client Insights & Personalisation"
+                heading="Know your customer before you walk in the door."
+                body="Built around the Miller Heiman strategic selling model, this view gave reps a structured picture of each account — key stakeholders, buying influences, relationship strength, and personalised talking points. Instead of relying on memory or scattered CRM notes, reps entered every conversation with a clear, AI-enriched view of who they were talking to and what mattered most to them."
+                tags={['Miller Heiman model', 'Stakeholder mapping', 'Account intelligence', 'Personalisation']}
               />
             </div>
-            <div className="cs__img-row" style={{ marginTop: '16px' }}>
+
+            {/* Feature 2 */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 2_2.png" alt="Live meeting coach — real-time suggested questions, follow-up prompts and live pricing calculations" className="cs__section-img" />
+              <p className="cs__img-caption">Live meeting coach — surfaces contextual follow-up questions, objection-handling prompts, and live margin calculations in real time as the conversation unfolds</p>
+              <DesignNote
+                type="decision"
+                label="Feature 2 · Live Meeting Coach"
+                heading="A co-pilot in the room — without the rep ever looking lost."
+                body="During live sales conversations, the tool surfaced contextual follow-up questions, suggested responses to common objections, and ran live pricing and margin calculations on the fly. Reps could stay fully present in the conversation while the AI worked in the background — flagging the right moment to push, probe, or pivot. The result: sharper conversations and faster in-meeting decisions."
+                tags={['Live coaching', 'Follow-up suggestions', 'Live math', 'Objection handling']}
+              />
+            </div>
+
+            {/* Feature 3 */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 2_3.png" alt="AI proposal templates — structured generation flow reducing hours of work to 15 minutes" className="cs__section-img" />
+              <p className="cs__img-caption">AI proposal template builder — structured generation flow that pulls from CRM data and pricing systems to produce a ready-to-send draft, cutting proposal time from 2–3 hours to under 15 minutes</p>
               <DesignNote
                 type="insight"
-                label="Feature 3 · Proposal Generation"
-                heading="From hours to minutes — without sacrificing personalisation."
-                body="AI-generated proposal drafts pulled from CRM data, pricing systems, and customer history to pre-fill templates with accurate, contextual content. Reps could customise within a structured framework, ensuring every proposal felt personal without starting from a blank page. Proposal creation went from a multi-hour task to a final check before sending."
-                tags={['AI generation', 'CRM + pricing integration', 'Template customisation', 'Faster turnaround']}
-                nda={true}
+                label="Feature 3 · AI Proposal Templates"
+                heading="2–3 hours of work. Done in 15 minutes."
+                body="Proposal creation was one of the biggest time drains in the sales cycle — reps were assembling documents from scratch every time. The AI proposal builder changed that entirely: by pulling from CRM records, pricing engines, and past proposals, it generated a structured, accurate first draft in minutes. Reps reviewed and refined rather than built from a blank page. Time saved per proposal: 85%."
+                tags={['AI templates', 'Proposal automation', '2–3 hrs → 15 mins', 'CRM integration']}
               />
+            </div>
+
+            {/* Feature 4 */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 2_4.png" alt="Customised proposal output — tailored sales document ready for a personalised pitch" className="cs__section-img" />
+              <p className="cs__img-caption">Customised proposal output — a tailored, client-ready document that reflects the account's specific context, priorities, and pricing, enabling a more targeted and credible sales approach</p>
               <DesignNote
                 type="principle"
-                label="Feature 4 · Continuous Learning"
-                heading="The tool gets smarter as the team does."
-                body="Real-time feedback loops refined AI recommendations based on outcomes — deals won, deals lost, and what changed in between. A best-practices repository captured and shared insights from top-performing reps, creating a living knowledge base that improved over time. The tool didn't just support the sales process; it got better at supporting it with every cycle."
-                tags={['Feedback loops', 'AI refinement', 'Best-practice capture', 'Performance insights']}
-                nda={true}
+                label="Feature 4 · Customised Proposal Output"
+                heading="Every proposal feels written for that client — because it is."
+                body="The final output wasn't a generic template with names swapped in. Each proposal was shaped by the client's specific account data, stakeholder priorities, and deal context — giving reps a document that felt genuinely tailored. That level of personalisation at speed shifted the sales conversation: reps showed up with something credible and specific, not something that looked like it was sent to everyone."
+                tags={['Personalised output', 'Client-ready proposals', 'Tailored pitch', 'Sales credibility']}
               />
             </div>
           </div>

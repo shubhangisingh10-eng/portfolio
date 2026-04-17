@@ -113,8 +113,6 @@ export default function CaseStudySalesWorkflow() {
           </div>
         </section>
 
-        <p className="cs__nda-note">🔒 This project is under NDA — design visuals have been replaced with written design notes throughout.</p>
-
         {/* THE CHALLENGE */}
         <section className="cs__section">
           <div className="cs__section-label">The Challenge</div>
@@ -177,22 +175,55 @@ export default function CaseStudySalesWorkflow() {
               <li>A specification for engineering — what to build, in what order, with what logic</li>
               <li>A communication tool for leadership — showing the North Star clearly enough to earn buy-in</li>
             </ul>
-            <div className="cs__img-row">
+            {/* Screen 1: Sales Hub */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 1_1.png" alt="Sales Hub — one-stop dashboard for accounts, whitespace view, forecasts, sales companion, and at-risk deals" className="cs__section-img" />
+              <p className="cs__img-caption">Sales Hub — a one-stop solution giving Sales Associates a unified view of all their accounts, whitespace opportunities, pipeline forecasts, the Sales Companion, and at-risk deals</p>
               <DesignNote
                 type="decision"
-                label="Design Decision"
-                heading="Automate the setup, guide the exceptions."
-                body="Standard account creation and territory assignment were automated entirely. Only edge cases — non-standard territories, flagged accounts — required manual input. This removed the biggest upfront gate in the deal process."
-                tags={['Account creation', 'Territory automation', 'SLDS form patterns']}
-                nda={true}
+                label="Screen 1 · Sales Hub"
+                heading="One place for everything — so reps never have to go looking."
+                body="The Sales Hub was designed as the single starting point for a rep's day. Instead of bouncing between tabs and systems, every high-signal piece of information — account health, forecast position, whitespace, and at-risk deals — was surfaced in one view. The Sales Companion gave reps the context they needed before any call or meeting, without having to dig for it."
+                tags={['Sales Hub', 'Unified dashboard', 'Whitespace view', 'At-risk deals', 'Sales Companion']}
               />
+            </div>
+
+            {/* Screen 2: Relationship Map */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 1_2.png" alt="Relationship map — stakeholder and account intelligence for more targeted selling" className="cs__section-img" />
+              <p className="cs__img-caption">Relationship map — visualises the key stakeholders and buying influences within a prospective account, helping reps understand the client landscape before approaching a deal</p>
               <DesignNote
                 type="decision"
-                label="Design Decision"
-                heading="Approvals should be invisible for standard deals."
-                body="For deals that met predefined criteria, approvals were automated in the background. Only exceptions surfaced to managers. Reps no longer had to wait — or even know an approval had happened."
-                tags={['Approval flows', 'Exception handling', 'SLDS process components']}
-                nda={true}
+                label="Screen 2 · Relationship Map"
+                heading="Understand who you're selling to before you sell."
+                body="The relationship map gave reps a structured view of the people inside a prospective account — decision-makers, influencers, blockers, and champions. By making the stakeholder landscape visible, reps could approach deals with context: who to prioritise, how relationships connected, and where the real buying power sat. Better intelligence meant more targeted, more credible conversations."
+                tags={['Relationship mapping', 'Stakeholder intelligence', 'Account strategy', 'SLDS']}
+              />
+            </div>
+
+            {/* Screen 3: Opportunity Screen */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 1_3.png" alt="Opportunity screen — prospective leads with scores and key deal information at a glance" className="cs__section-img" />
+              <p className="cs__img-caption">Opportunity screen — a consolidated view of all prospective leads with lead scores, deal stage, value, and other key indicators visible at a glance without opening each record</p>
+              <DesignNote
+                type="decision"
+                label="Screen 3 · Opportunity Screen"
+                heading="Everything a rep needs to prioritise their pipeline — without opening a single record."
+                body="The opportunity screen was redesigned to surface the right signals immediately: lead score, deal stage, account value, and next action — all in one scannable row. Reps no longer had to click into each opportunity to assess its status. The result was faster triage, more confident prioritisation, and less time spent navigating the CRM just to understand where things stood."
+                tags={['Opportunity management', 'Lead scoring', 'Pipeline view', 'SLDS list components']}
+              />
+            </div>
+
+            {/* Screen 4: CLM / Conga */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 1_4.png" alt="CLM process — Conga integrated into Salesforce for end-to-end contract lifecycle management" className="cs__section-img" />
+              <p className="cs__img-caption">CLM process via Conga in Salesforce — contract lifecycle management integrated directly into the platform, removing the need to switch systems at the quote-to-contract stage</p>
+              <DesignNote
+                type="decision"
+                label="Screen 4 · CLM via Conga"
+                heading="Close the loop on the deal — without leaving Salesforce."
+                body="The quote-to-contract stage was one of the biggest sources of manual effort and context-switching in the old flow. By integrating Conga directly into Salesforce, the CLM process became a native part of the deal journey. Reps could generate, send, and track contracts without switching systems — and the data stayed live inside the CRM throughout."
+                tags={['CLM', 'Conga integration', 'Contract lifecycle', 'Quote-to-order']}
               />
             </div>
           </div>
@@ -236,7 +267,6 @@ export default function CaseStudySalesWorkflow() {
                 heading="Designs as a decision-making tool, not just a deliverable."
                 body="The prototype served a role beyond engineering handoff — it became the artifact that aligned leadership. Because it was built in SLDS and showed the real platform, executives weren't being asked to imagine the future state. They could see it. That made the buy-in conversation fundamentally different."
                 tags={['C-suite alignment', 'CTO · CFO', 'North Star prototype', 'Stakeholder buy-in']}
-                nda={false}
               />
             </div>
           </div>

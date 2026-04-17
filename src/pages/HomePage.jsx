@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import WorkCard from '../components/WorkCard.jsx'
 import FAQAccordion from '../components/FAQAccordion.jsx'
@@ -27,23 +27,6 @@ const projects = [
   },
   {
     number: 'PROJECT 02',
-    tags: ['UX Strategy', 'Conversion Optimization', 'A/B Testing'],
-    title: 'Designing a DTC Patient Activation Journey That Drives Action',
-    category: 'Healthcare · Direct-to-Consumer · Patient Experience',
-    description:
-      'Redesigned a healthcare DTC experience to drive patient action. Ran A/B tests across content structure, messaging, and entry points to identify what actually moves users forward.',
-    impact: [
-      '~90% higher CTR for caregivers with optimized messaging',
-      '2× engagement lift from readiness-focused themes',
-      '7–9% CTR on FAQ dropdown interactions',
-    ],
-    bgColor: '#1E3028',
-    image: '/Case Study 2 Square.png',
-    route: '/case-study/dtc-patient-activation',
-    stamp: { emoji: '🩺', label: 'Healthcare\nDTC' },
-  },
-  {
-    number: 'PROJECT 03',
     tags: ['GenAI', 'UX Strategy', 'Enterprise', 'B2B Sales'],
     title: 'Reimagining Sales Enablement with GenAI for a Global Energy Company',
     category: 'Energy · GenAI · B2B Sales Enablement',
@@ -58,6 +41,23 @@ const projects = [
     image: '/Case Study 3 Square.png',
     route: '/case-study/genai-sales-enablement',
     stamp: { emoji: '⚡', label: 'Gen AI\nB2B Sales' },
+  },
+  {
+    number: 'PROJECT 03',
+    tags: ['UX Strategy', 'Conversion Optimization', 'A/B Testing'],
+    title: 'Designing a DTC Patient Activation Journey That Drives Action',
+    category: 'Healthcare · Direct-to-Consumer · Patient Experience',
+    description:
+      'Redesigned a healthcare DTC experience to drive patient action. Ran A/B tests across content structure, messaging, and entry points to identify what actually moves users forward.',
+    impact: [
+      '~90% higher CTR for caregivers with optimized messaging',
+      '2× engagement lift from readiness-focused themes',
+      '7–9% CTR on FAQ dropdown interactions',
+    ],
+    bgColor: '#1E3028',
+    image: '/Case Study 2 Square.png',
+    route: '/case-study/dtc-patient-activation',
+    stamp: { emoji: '🩺', label: 'Healthcare\nDTC' },
   },
 ]
 
@@ -101,6 +101,66 @@ const experience = [
 
 const tickerText =
   'PRODUCT DESIGN ✦ ENTERPRISE UX ✦ AI PRODUCTS ✦ DESIGN SYSTEMS ✦ USER RESEARCH ✦ ACCESSIBILITY ✦ INTERACTION DESIGN ✦ PROTOTYPING ✦ BCG X ✦ 5+ YEARS ✦ '
+
+/* ── Scroll-driven timeline ── */
+function ScrollTimeline({ experience }) {
+  const containerRef = useRef(null)
+  const lineRef = useRef(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    const onScroll = () => {
+      const container = containerRef.current
+      const line = lineRef.current
+      if (!container || !line) return
+
+      const { top, height } = container.getBoundingClientRect()
+      const windowH = window.innerHeight
+
+      // How far we've scrolled into the timeline (0→1)
+      const progress = Math.min(1, Math.max(0, (windowH * 0.6 - top) / height))
+      line.style.height = `${progress * 100}%`
+
+      // Light up dots
+      const items = container.querySelectorAll('.tl-item')
+      items.forEach((item, i) => {
+        const itemTop = item.getBoundingClientRect().top
+        if (itemTop < windowH * 0.65) setActiveIndex(i)
+      })
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <div className="about__timeline reveal" data-delay="4" ref={containerRef}>
+      {/* Track */}
+      <div className="tl-track">
+        <div className="tl-track__bg" />
+        <div className="tl-track__fill" ref={lineRef} />
+      </div>
+
+      {/* Items */}
+      <div className="tl-items">
+        {experience.map((exp, i) => (
+          <div key={i} className={`tl-item ${exp.current ? 'tl-item--current' : ''} ${i <= activeIndex ? 'tl-item--active' : ''}`}>
+            <span className="tl-dot" />
+            <div className="timeline-content">
+              <div className="timeline-role">
+                {exp.role}
+                {exp.current && <span className="timeline-tag">Current</span>}
+              </div>
+              <div className="timeline-company">{exp.company} · {exp.location}</div>
+              <div className="timeline-period">{exp.period}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function HomePage() {
   useScrollReveal()
@@ -235,24 +295,8 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Experience timeline */}
-            <div className="about__timeline reveal" data-delay="4">
-              {experience.map((exp, i) => (
-                <div key={i} className={`timeline-item ${exp.current ? 'timeline-item--current' : ''}`}>
-                  <span className="timeline-dot">{exp.current ? '●' : '○'}</span>
-                  <div className="timeline-content">
-                    <div className="timeline-role">
-                      {exp.role}
-                      {exp.current && (
-                        <span className="timeline-tag">Current</span>
-                      )}
-                    </div>
-                    <div className="timeline-company">{exp.company}</div>
-                    <div className="timeline-period">{exp.period}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {/* Experience timeline — scroll-driven */}
+            <ScrollTimeline experience={experience} />
           </div>
 
           {/* Right col */}

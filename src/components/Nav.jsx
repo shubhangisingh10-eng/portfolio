@@ -30,7 +30,7 @@ export default function Nav() {
         </div>
 
         <div className="nav__right">
-          <a href="/#contact" className="nav__link">Contact</a>
+          <a href="https://www.shubhangisingh.com/" target="_blank" rel="noopener noreferrer" className="nav__link">Archive ↗</a>
           <a
             href="https://www.linkedin.com/in/shubhangisingh10/"
             target="_blank"

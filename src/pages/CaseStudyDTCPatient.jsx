@@ -109,14 +109,11 @@ export default function CaseStudyDTCPatient() {
                 heading="Users weren't lost — they were just never given a clear next step."
                 body="Journey mapping revealed that drop-off wasn't happening at one predictable moment. Users were disengaging at different points depending on how they arrived and what they were looking for. The experience had no logic for guiding someone from curiosity to commitment — it just presented information and hoped users would figure out the rest."
                 tags={['Journey mapping', 'Drop-off analysis', 'Patient vs. caregiver behaviour']}
-                nda={false}
-              />
+                              />
             </div>
             <p>Over time, this led to drop-off after initial engagement, low progression toward key actions, and weak signals of user intent. The experience wasn't ineffective — it just wasn't structured to support decision-making.</p>
           </div>
         </section>
-
-        <p className="cs__nda-note">🔒 This project is under NDA — design visuals have been replaced with written design notes throughout.</p>
 
         {/* THE CHALLENGE */}
         <section className="cs__section">
@@ -137,8 +134,7 @@ export default function CaseStudyDTCPatient() {
                 heading="Patients and caregivers were using the same experience to answer completely different questions."
                 body="Patients wanted to understand readiness — 'Am I a good candidate? What does recovery look like?' Caregivers wanted to evaluate on behalf of someone else — 'Is this safe? What do I need to organise?' The same content structure couldn't serve both well. This shaped every design decision that followed."
                 tags={['Audience segmentation', 'Patient needs', 'Caregiver needs', 'Content strategy']}
-                nda={false}
-              />
+                              />
             </div>
           </div>
         </section>
@@ -201,8 +197,7 @@ export default function CaseStudyDTCPatient() {
                 heading="Build in Webflow, test live, interpret with the analyst — then move fast."
                 body="Each hypothesis became a Webflow variant — a real, live page I could build and modify quickly without engineering involvement. The growth analyst ran the tests and pulled the data. My job was to translate those results into design decisions: what to keep, what to cut, what to try next. This loop — build, test, interpret, iterate — compressed weeks of design work into days."
                 tags={['Webflow', 'Low-code variants', 'Live testing', 'Growth analyst collaboration']}
-                nda={false}
-              />
+                              />
             </div>
           </div>
         </section>
@@ -220,16 +215,58 @@ export default function CaseStudyDTCPatient() {
               <li>Simplified primary actions across the journey → Removed competition between CTAs</li>
               <li>Structured a clear progression from learning to action → Made next steps obvious</li>
             </ul>
-            <div className="cs__img-stack">
+            {/* Onboarding */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 3_1.png" alt="Patient onboarding screen — welcome flow introducing the activation journey" className="cs__section-img" />
+              <p className="cs__img-caption">Onboarding screen — the entry point into the patient activation journey, setting context and establishing a clear first step for both patients and caregivers</p>
               <DesignNote
                 type="decision"
-                label="Design Decision"
-                heading="The quiz became the bridge between exploration and action."
-                body="The winning pattern across all the testing was that users needed a structured moment to move from passive reading to active intent. I designed a short quiz — built into the Figma specs as a core journey step — that helped users self-identify their situation and get a personalised next step. It removed the ambiguity of 'what do I do now?' and gave users a reason to stay and commit."
-                tags={['Figma build-ready specs', 'Engineering handoff', 'Quiz flow', 'Conversion design']}
-                nda={false}
+                label="Onboarding"
+                heading="First impressions needed to tell users exactly where they were and why it mattered."
+                body="The onboarding screen was the first moment of trust-building. It needed to immediately communicate what the experience was for, who it was designed to help, and what the user would get by continuing. Rather than front-loading clinical information, it opened with intent — meeting users at the emotion they'd arrived with and inviting them forward."
+                tags={['First-time experience', 'Audience framing', 'Trust-building', 'Clear entry point']}
               />
             </div>
+
+            {/* Quiz — KOOS jr */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 3_2.png" alt="KOOS Jr quiz — validated knee health assessment guiding users toward a personalised outcome" className="cs__section-img" />
+              <p className="cs__img-caption">Quiz based on the KOOS Jr (Knee injury and Osteoarthritis Outcome Score) — a clinically validated assessment translated into a simple, guided question flow</p>
+              <DesignNote
+                type="decision"
+                label="Design Decision · Quiz Flow"
+                heading="The quiz became the bridge between exploration and action."
+                body="The winning pattern across all the testing was that users needed a structured moment to move from passive reading to active intent. I designed a short quiz built around the KOOS Jr clinical framework — helping users self-assess their knee health in a way that felt guided, not clinical. It removed the ambiguity of 'what do I do now?' and gave users a reason to stay and commit to the next step."
+                tags={['KOOS Jr', 'Clinical framework', 'Quiz flow', 'Conversion design']}
+              />
+            </div>
+
+            {/* Quiz results */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 3_3.png" alt="Quiz results screen — personalised outcome indicating whether surgery may be appropriate" className="cs__section-img" />
+              <p className="cs__img-caption">Quiz results screen — surfaces a personalised recommendation based on the user's responses, indicating whether surgical consultation may be appropriate and what the next step is</p>
+              <DesignNote
+                type="insight"
+                label="Quiz Results"
+                heading="A result that informed, rather than alarmed."
+                body="The results screen had to walk a careful line: give users a meaningful, actionable outcome without overstating certainty or creating anxiety. The design framed results as guidance — a starting point for a conversation with a doctor, not a diagnosis. Paired with a clear CTA, it turned the quiz completion into a moment of forward momentum rather than a dead end."
+                tags={['Personalised outcome', 'Clinical sensitivity', 'CTA design', 'Anxiety-aware UX']}
+              />
+            </div>
+
+            {/* FAQs */}
+            <div className="cs__design-pair">
+              <img src="/Case Study 3_4.png" alt="FAQ section — accordion-based content structure guiding users through common questions" className="cs__section-img" />
+              <p className="cs__img-caption">FAQs to guide users — expandable accordion structure surfacing answers to the questions patients and caregivers most needed answered before taking action</p>
+              <DesignNote
+                type="process"
+                label="Content Structure · FAQs"
+                heading="Question-based content outperformed timeline content across every test."
+                body="Testing showed that users weren't scanning for information — they were looking for answers to specific concerns. The FAQ accordion structure matched that intent directly: each question was a mirror of something a real user had asked or searched. Dropdown CTR reached 7–9% in high-interest sections, and Find-a-Doctor engagement was meaningfully higher from FAQ pages than any other content format tested."
+                tags={['FAQ structure', 'Accordion design', '7–9% dropdown CTR', 'Scannable content']}
+              />
+            </div>
+
             <p style={{ marginTop: '24px' }}>
               Instead of navigating disconnected pages, users move through a flow that supports their
               decisions: Discovery → understanding → intent → action. The quiz emerged as a key step
