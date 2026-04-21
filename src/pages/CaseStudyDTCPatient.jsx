@@ -12,7 +12,7 @@ export default function CaseStudyDTCPatient() {
       {/* Top bar */}
       <div className="cs__topbar">
         <Link to="/" className="cs__back">← Back to portfolio</Link>
-        <span className="cs__case-label">Case Study 02</span>
+        <span className="cs__case-label">Case Study 04</span>
       </div>
 
       {/* Header */}

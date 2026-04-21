@@ -12,7 +12,7 @@ export default function CaseStudyGenAISales() {
       {/* Top bar */}
       <div className="cs__topbar">
         <Link to="/" className="cs__back">← Back to portfolio</Link>
-        <span className="cs__case-label">Case Study 03</span>
+        <span className="cs__case-label">Case Study 02</span>
       </div>
 
       {/* Header */}

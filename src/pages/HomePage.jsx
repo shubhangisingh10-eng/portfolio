@@ -44,23 +44,6 @@ const projects = [
   },
   {
     number: 'PROJECT 03',
-    tags: ['UX Strategy', 'Conversion Optimization', 'A/B Testing'],
-    title: 'Designing a DTC Patient Activation Journey That Drives Action',
-    category: 'Healthcare · Direct-to-Consumer · Patient Experience',
-    description:
-      'Redesigned a healthcare DTC experience to drive patient action. Ran A/B tests across content structure, messaging, and entry points to identify what actually moves users forward.',
-    impact: [
-      '~90% higher CTR for caregivers with optimized messaging',
-      '2× engagement lift from readiness-focused themes',
-      '7–9% CTR on FAQ dropdown interactions',
-    ],
-    bgColor: '#1E3028',
-    image: '/Case Study 2 Square.png',
-    route: '/case-study/dtc-patient-activation',
-    stamp: { emoji: '🩺', label: 'Healthcare\nDTC' },
-  },
-  {
-    number: 'PROJECT 04',
     tags: ['Multi-Agent AI', 'AI UX', 'Interaction Design', 'BCG X'],
     title: 'Designing Human–AI Collaboration for Faster Software Delivery',
     category: 'AI · Multi-Agent Systems · Enterprise',
@@ -75,6 +58,23 @@ const projects = [
     image: '/Case Study 4 Square.png',
     route: '/case-study/mia-multi-agent',
     stamp: { emoji: '🤖', label: 'Multi\nAgent AI' },
+  },
+  {
+    number: 'PROJECT 04',
+    tags: ['UX Strategy', 'Conversion Optimization', 'A/B Testing'],
+    title: 'Designing a DTC Patient Activation Journey That Drives Action',
+    category: 'Healthcare · Direct-to-Consumer · Patient Experience',
+    description:
+      'Redesigned a healthcare DTC experience to drive patient action. Ran A/B tests across content structure, messaging, and entry points to identify what actually moves users forward.',
+    impact: [
+      '~90% higher CTR for caregivers with optimized messaging',
+      '2× engagement lift from readiness-focused themes',
+      '7–9% CTR on FAQ dropdown interactions',
+    ],
+    bgColor: '#1E3028',
+    image: '/Case Study 2 Square.png',
+    route: '/case-study/dtc-patient-activation',
+    stamp: { emoji: '🩺', label: 'Healthcare\nDTC' },
   },
 ]
 
