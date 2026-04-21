@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage.jsx'
 import CaseStudySalesWorkflow from './pages/CaseStudySalesWorkflow.jsx'
 import CaseStudyDTCPatient from './pages/CaseStudyDTCPatient.jsx'
 import CaseStudyGenAISales from './pages/CaseStudyGenAISales.jsx'
+import CaseStudyMia from './pages/CaseStudyMia.jsx'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/case-study/sales-workflow-redesign" element={<CaseStudySalesWorkflow />} />
         <Route path="/case-study/dtc-patient-activation" element={<CaseStudyDTCPatient />} />
         <Route path="/case-study/genai-sales-enablement" element={<CaseStudyGenAISales />} />
+        <Route path="/case-study/mia-multi-agent" element={<CaseStudyMia />} />
       </Routes>
     </BrowserRouter>
   )

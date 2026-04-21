@@ -59,6 +59,23 @@ const projects = [
     route: '/case-study/dtc-patient-activation',
     stamp: { emoji: '🩺', label: 'Healthcare\nDTC' },
   },
+  {
+    number: 'PROJECT 04',
+    tags: ['Multi-Agent AI', 'AI UX', 'Interaction Design', 'BCG X'],
+    title: 'Designing Human–AI Collaboration for Faster Software Delivery',
+    category: 'AI · Multi-Agent Systems · Enterprise',
+    description:
+      'Designed the interaction model for Mia, a multi-agent SDLC platform at BCG X. Structured human–agent–agent interactions, built system visibility, and defined early patterns for scalable AI-augmented delivery.',
+    impact: [
+      'Positioned as a strategic agentic workflow offering for future clients',
+      'Became the reference point for AI-driven product development at BCG X',
+      'Defined interaction patterns for scalable human–AI systems',
+    ],
+    bgColor: '#1C1A2E',
+    image: '/Case Study 4 Square.png',
+    route: '/case-study/mia-multi-agent',
+    stamp: { emoji: '🤖', label: 'Multi\nAgent AI' },
+  },
 ]
 
 const expertiseTags = [
