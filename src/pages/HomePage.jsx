@@ -179,6 +179,43 @@ function ScrollTimeline({ experience }) {
   )
 }
 
+const SPARKLES = [
+  { symbol: '✦', style: { left: '8%',  top: '28%', animationDelay: '0s'    } },
+  { symbol: '✏️', style: { left: '22%', top: '8%',  animationDelay: '0.08s' } },
+  { symbol: '💡', style: { right: '18%',top: '12%', animationDelay: '0.18s' } },
+  { symbol: '✦', style: { right: '6%', top: '44%', animationDelay: '0.04s' } },
+  { symbol: '⭐', style: { left: '48%', top: '3%',  animationDelay: '0.13s' } },
+  { symbol: '🎨', style: { left: '14%', top: '62%', animationDelay: '0.22s' } },
+]
+
+function StickerHero() {
+  const [hovered, setHovered] = useState(false)
+  const [sparkling, setSparkling] = useState(false)
+
+  const handleEnter = () => {
+    setHovered(true)
+    setSparkling(true)
+    setTimeout(() => setSparkling(false), 1400)
+  }
+
+  return (
+    <div
+      className="hero__sticker-wrap"
+      onMouseEnter={handleEnter}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <img
+        src="/SS handrawn sketch 1.png"
+        alt="Shubhangi Singh — product designer illustration"
+        className={`hero__sticker${hovered ? ' hero__sticker--floating' : ''}`}
+      />
+      {sparkling && SPARKLES.map((s, i) => (
+        <span key={i} className="hero__sparkle" style={s.style}>{s.symbol}</span>
+      ))}
+    </div>
+  )
+}
+
 export default function HomePage() {
   useScrollReveal()
 
@@ -217,24 +254,16 @@ export default function HomePage() {
     <main className="home">
       {/* ======================== HERO ======================== */}
       <section className="hero">
-        <div className="hero__aurora" aria-hidden="true">
-          <div className="hero__blob hero__blob--1" />
-          <div className="hero__blob hero__blob--2" />
-          <div className="hero__blob hero__blob--3" />
-          <div className="hero__blob hero__blob--4" />
-        </div>
-        <div className="hero__grain" aria-hidden="true" />
-
         <div className="hero__inner">
           {/* Left: text content */}
           <div className="hero__content">
             <h1 className="hero__headline">Hi! I'm Shubhangi</h1>
             <p className="hero__sub">
-              <em className="hero__em">Product Designer</em> with <em className="hero__em">5+ Years</em> of experience,
+              <em className="hero__em">Product designer</em> with <em className="hero__em">5+ yrs</em> of experience,
               blending curiosity, human insight, and strategy to shape meaningful digital experiences.
             </p>
             <div className="hero__logos">
-              <span className="hero__logo-label">WORK AT</span>
+              <span className="hero__logo-label">CURRENTLY AT</span>
               <img src="/Logos/Logo 1.svg" alt="BCG" className="hero__logo" />
               <span className="hero__logo-divider" />
               <span className="hero__logo-label">STUDIED AT</span>
@@ -248,15 +277,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right: NYC photo as found photograph */}
+          {/* Right: Handrawn sticker illustration */}
           <div className="hero__photo-col">
-            <div className="hero__photo-frame">
-              <img
-                src="/hero-nyc.jpg"
-                alt="Shubhangi working at BCG X office with NYC skyline view"
-                className="hero__image"
-              />
-            </div>
+            <StickerHero />
           </div>
         </div>
       </section>
@@ -274,7 +297,6 @@ export default function HomePage() {
         <div className="work__header">
           <img src="/Project.svg" className="section-icon reveal" alt="" aria-hidden="true" />
           <h2 className="work__title reveal" data-delay="1">Selected Work</h2>
-          <p className="work__sub reveal" data-delay="2">Hover to explore — click to read the full story.</p>
         </div>
         <div className="work__cards">
           {projects.map((p, i) => (
@@ -312,8 +334,8 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Experience timeline — scroll-driven */}
-            <ScrollTimeline experience={experience} />
+            {/* Experience timeline — preserved, uncomment to restore */}
+            {/* <ScrollTimeline experience={experience} /> */}
           </div>
 
           {/* Right col */}

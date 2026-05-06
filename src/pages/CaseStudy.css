@@ -6,6 +6,12 @@
   padding-top: 64px; /* nav height */
   background: var(--white);
   min-height: 100vh;
+  /* Override accent tokens to blue inside all case studies */
+  --rust:       #3B72B0;
+  --rust-light: #EBF3FC;
+  --rust-muted: #93BBDA;
+  --tag-bg:     #EBF3FC;
+  --tag-text:   #3B72B0;
 }
 
 /* Top bar */

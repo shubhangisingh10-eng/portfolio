@@ -5,12 +5,12 @@
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(189, 208, 220, 0.6);
+  border-bottom: 1px solid rgba(196, 112, 58, 0.15);
   transition: box-shadow 0.3s ease;
 }
 
 .nav--scrolled {
-  box-shadow: 0 4px 24px rgba(28, 59, 80, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
 }
 
 .nav__inner {
@@ -66,12 +66,12 @@
   bottom: -4px;
   left: 0; right: 0;
   height: 2px;
-  background: #3B72B0;
+  background: #C4703A;
   border-radius: 1px;
 }
 
-.nav__link--external { color: #3B72B0; }
-.nav__link--external:hover { color: #3A6B88; }
+.nav__link--external { color: #C4703A; }
+.nav__link--external:hover { color: #A85A28; }
 
 @media (max-width: 768px) {
   .nav__inner { padding: 0 24px; }

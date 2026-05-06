@@ -1,21 +1,20 @@
-/* ── Postcard card ── */
+/* ── Card ── */
 .work-card {
-  background: #FDFAF7;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  border-radius: 10px;
-  overflow: visible;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 44% 1fr;
   gap: 0;
-  box-shadow:
-    0 1px 2px rgba(0,0,0,0.04),
-    0 4px 12px rgba(0,0,0,0.06),
-    0 16px 40px rgba(0,0,0,0.07);
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   transform: rotate(-0.4deg);
   position: relative;
   margin: 0 0 56px;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.04),
+    0 4px 12px rgba(0,0,0,0.07),
+    0 16px 40px rgba(0,0,0,0.08);
 }
 
 .work-card:nth-child(even) {
@@ -25,9 +24,9 @@
 .work-card--hovered {
   transform: rotate(0deg) translateY(-6px) !important;
   box-shadow:
-    0 2px 4px rgba(0,0,0,0.04),
-    0 8px 24px rgba(0,0,0,0.09),
-    0 28px 56px rgba(0,0,0,0.10);
+    0 2px 4px rgba(0,0,0,0.05),
+    0 8px 24px rgba(0,0,0,0.10),
+    0 28px 56px rgba(0,0,0,0.12);
 }
 
 /* ── Postage stamp ── */
@@ -85,8 +84,7 @@
   min-height: 420px;
   cursor: pointer;
   overflow: hidden;
-  background: #D8E8F0;
-  border-radius: 9px 0 0 9px;
+  background: #EEDDD2;
   /* perforated divider on the right edge */
   border-right: 1px dashed rgba(0,0,0,0.12);
 }
@@ -94,13 +92,13 @@
 .work-card__image-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(28, 59, 80, 0);
+  background: rgba(28, 40, 30, 0);
   transition: background 0.4s ease;
   z-index: 1;
 }
 
 .work-card--hovered .work-card__image-overlay {
-  background: rgba(28, 59, 80, 0.22);
+  background: rgba(28, 40, 30, 0.22);
 }
 
 .work-card__image-photo {
@@ -123,7 +121,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  color: #B8CEDB;
+  color: #C4A882;
   font-family: var(--font-body);
   font-size: 0.62rem;
   letter-spacing: 0.1em;
@@ -140,7 +138,7 @@
   transform: translateX(-50%) translateY(8px);
   opacity: 0;
   background: #FFFFFF;
-  color: #1C3B50;
+  color: #1a1a1a;
   font-family: var(--font-body);
   font-size: 0.68rem;
   font-weight: 600;
@@ -164,7 +162,6 @@
   flex-direction: column;
   justify-content: center;
   background: #FDFAF7;
-  border-radius: 0 9px 9px 0;
   overflow: hidden;
 }
 
@@ -198,7 +195,7 @@
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 2.6vw, 2.1rem);
   font-weight: 400;
-  color: #1C3B50;
+  color: #1a1a1a;
   line-height: 1.15;
   margin-bottom: 10px;
   letter-spacing: -0.01em;
@@ -209,7 +206,7 @@
   font-size: 0.70rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #3B72B0;
+  color: #C4703A;
   margin-bottom: 16px;
   font-weight: 500;
 }
@@ -232,7 +229,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #3A6478;
+  color: #C4703A;
   margin-bottom: 12px;
 }
 
@@ -256,7 +253,7 @@
   content: '—';
   position: absolute;
   left: 0;
-  color: #3B72B0;
+  color: #C4703A;
 }
 
 .work-card__cta {
@@ -266,24 +263,24 @@
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #1C3B50;
+  color: #1a1a1a;
   text-decoration: none;
   gap: 8px;
   cursor: pointer;
-  border-bottom: 1px solid #B8CEDB;
+  border-bottom: 1px solid #D4B89A;
   padding-bottom: 3px;
   width: fit-content;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.work-card__cta:hover { color: #3B72B0; border-color: #3B72B0; }
-.work-card__cta--disabled { color: #3A6478; cursor: default; }
+.work-card__cta:hover { color: #C4703A; border-color: #C4703A; }
+.work-card__cta--disabled { color: #999; cursor: default; }
 
 @media (max-width: 1024px) {
   .work-card { grid-template-columns: 1fr; transform: none !important; }
-  .work-card__image { min-height: 0; aspect-ratio: 16 / 10; border-right: none; border-bottom: 1px dashed rgba(0,0,0,0.10); border-radius: 9px 9px 0 0; }
+  .work-card__image { min-height: 0; aspect-ratio: 16 / 10; border-right: none; border-bottom: 1px dashed rgba(0,0,0,0.10); }
   .work-card__image-photo { object-fit: cover; object-position: center center; }
-  .work-card__content { padding: 32px 36px; border-radius: 0 0 9px 9px; }
+  .work-card__content { padding: 32px 36px; }
 }
 
 @media (max-width: 768px) {

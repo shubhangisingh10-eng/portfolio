@@ -39,15 +39,15 @@
 }
 
 /* =============================================
-   DESIGN TOKENS — Cream / Steel Blue palette
+   DESIGN TOKENS — Warm cream / Rust palette
    ============================================= */
 
 :root {
   /* Core backgrounds */
   --paper:        #FFFFFF;   /* pure white */
-  --paper-warm:   #F8FAFF;
+  --paper-warm:   #FAF5EE;   /* warm off-white */
   --paper-dark:   #CBD5E1;   /* border */
-  --cream:        #F8FAFF;   /* card bg — barely blue-tinted */
+  --cream:        #FDFAF7;   /* card bg — warm cream */
 
   /* Text hierarchy — near black */
   --ink:          #111827;
@@ -55,24 +55,24 @@
   --ink-light:    #6B7280;
   --ink-pale:     #94A3B8;   /* decorative only */
 
-  /* Blue accent system — BCG X blue */
+  /* Blue accent — kept for case study structural accents */
   --blue:         #3B72B0;
   --blue-light:   #93BBDA;
   --blue-soft:    #EBF3FC;
 
-  /* Legacy — all mapped to BCG X blue */
-  --stamp-red:    #3B72B0;
-  --stamp-blue:   #3B72B0;
-  --mustard:      #3B72B0;
-  --rust:         #3B72B0;   /* primary accent */
-  --rust-light:   #EBF3FC;
-  --rust-muted:   #93BBDA;
+  /* Primary accent — rust orange */
+  --stamp-red:    #C4703A;
+  --stamp-blue:   #C4703A;
+  --mustard:      #C4703A;
+  --rust:         #C4703A;   /* primary accent */
+  --rust-light:   #FDF0E6;
+  --rust-muted:   #DEB89A;
   --charcoal:     #111827;   /* near-black headings / footer bg */
   --white:        #FFFFFF;   /* pure white bg */
   --gray-text:    #6B7280;
   --gray-border:  #E2E8F0;
-  --tag-bg:       #EBF3FC;
-  --tag-text:     #3B72B0;
+  --tag-bg:       #FDF0E6;
+  --tag-text:     #C4703A;
 
   /* Typography */
   --font-display: 'PP Writer', Georgia, serif;
